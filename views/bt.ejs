@@ -1,0 +1,791 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+
+    <!-- Bootstrap CSS -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      crossorigin="anonymous"
+    />
+    <title>Binary Tree Question</title>
+    <style>
+      body {
+        background-color: black;
+        color: white;
+      }
+      #Array_table {
+        border: 2px solid white;
+        border-collapse: collapse;
+      }
+      table tr {
+        border: 2px solid white;
+      }
+      table td {
+        padding-left: 8px;
+
+        border: 2px solid white;
+      }
+      table th {
+        border: 2px solid white;
+        font-weight: bolder;
+        text-align: center;
+        font-size: 20px;
+      }
+      .center {
+        text-align: center;
+      }
+      table {
+        margin: 18px auto;
+      }
+      td a{
+        list-style: none;
+        color: white;
+      }
+      a:visited{
+        color: red;
+      }
+      #cbox{ 
+        height: 3vh;
+        width: 3vh; 
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Navigation Bar the Website -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <a class="navbar-brand" href="/">Placement Prep Tracker</a>
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-toggle="collapse"
+        data-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item active">
+            <a class="nav-link" href="#"
+              >Home <span class="sr-only">(current)</span></a
+            >
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="About">About</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="contact">Contact Us</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a
+              class="nav-link dropdown-toggle"
+              href="#"
+              id="navbarDropdown"
+              role="button"
+              data-toggle="dropdown"
+              aria-haspopup="true"
+              aria-expanded="false"
+            >
+              Content
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <a class="dropdown-item" href="dsa">DSA</a>
+              <a class="dropdown-item" href="web">Web Development</a>
+              <div class="dropdown-divider"></div>
+              <a class="dropdown-item" href="core">Core Subjects</a>
+            </div>
+          </li>
+        </ul>
+        <form class="form-inline my-2 my-lg-0">
+          
+          <div class="mx-2">
+            
+              <% if(!session.loggedIn) {%>
+                <button type="button" class="btn btn-danger" mx-2>
+              <a href="login" style="color: white">LogIn</a>
+            </button>
+              <% } else { %>
+                <strong><span class="text-light">Hi <%= username+" " %></span></strong> 
+              <% } %>
+              <% if(!session.loggedIn) { %>
+                <button type="button" class="btn btn-danger" mx-2>
+              <a href="signUp" style="color: white" ;>Signup</a>
+            </button>
+              <% } else { %>
+                <form action="/logout?_method=DELETE" method="POST">
+                  <button class="btn btn-danger ml-1" mx-2 type="submit">Log Out</button>
+              </form>
+            <% } %>
+          </div>
+        </form>
+      </div>
+    </nav>
+    <table>
+      <thead>
+        <tr>
+          <th>Question</th>
+          <th>Article</th>
+          <th>Practice</th>
+          <th>Done 👍</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Level order traversal</td>
+          <td>
+            <a href="https://www.geeksforgeeks.org/level-order-tree-traversal/"
+              >Link</a
+            >
+          </td>
+          <td>
+            <a
+              href="https://practice.geeksforgeeks.org/problems/level-order-traversal/1"
+              >Link</a
+            >
+          </td>
+          <td class="center">
+            <input type="checkbox" class="checkbox" >
+           </td>
+        </tr>
+        <tr>
+          <td>Reverse Level Order traversal</td>
+          <td>
+            <a
+              href="https://www.geeksforgeeks.org/reverse-level-order-traversal/"
+              >Link</a
+            >
+          </td>
+          <td>
+            <a
+              href="https://practice.geeksforgeeks.org/problems/reverse-level-order-traversal/1"
+              >Link</a
+            >
+          </td>
+          <td class="center">
+            <input type="checkbox" class="checkbox" >
+           </td>
+        </tr>
+        <tr>
+          <td>Height of a tree</td>
+          <td>
+            <a
+              href="https://www.geeksforgeeks.org/write-a-c-program-to-find-the-maximum-depth-or-height-of-a-tree/"
+              >Link</a
+            >
+          </td>
+          <td>
+            <a
+              href="https://practice.geeksforgeeks.org/problems/height-of-binary-tree/1"
+              >Link</a
+            >
+          </td>
+          <td class="center">
+            <input type="checkbox" class="checkbox" >
+           </td>
+        </tr>
+        <tr>
+          <td>Diameter of a tree</td>
+          <td>
+            <a href="https://www.geeksforgeeks.org/diameter-of-a-binary-tree/"
+              >Link</a
+            >
+          </td>
+          <td>
+            <a
+              href="https://practice.geeksforgeeks.org/problems/diameter-of-binary-tree/1"
+              >Link</a
+            >
+          </td>
+          <td class="center">
+            <input type="checkbox" class="checkbox" >
+           </td>
+        </tr>
+        <tr>
+          <td>Mirror of a tree</td>
+          <td>
+            <a
+              href="https://www.geeksforgeeks.org/create-a-mirror-tree-from-the-given-binary-tree/"
+              >Link</a
+            >
+          </td>
+          <td>
+            <a href="https://practice.geeksforgeeks.org/problems/mirror-tree/1"
+              >Link</a
+            >
+          </td>
+          <td class="center">
+            <input type="checkbox" class="checkbox" >
+           </td>
+        </tr>
+        <tr>
+          <td>
+            Inorder Traversal of a tree both using recursion and Iteration
+          </td>
+          <td>
+            <a
+              href="https://www.geeksforgeeks.org/tree-traversals-inorder-preorder-and-postorder/"
+              >Link</a
+            >
+          </td>
+          <td>Link</td>
+          <td class="center">
+            <input type="checkbox" class="checkbox" >
+           </td>
+        </tr>
+        <tr>
+          <td>
+            Preorder Traversal of a tree both using recursion and Iteration
+          </td>
+          <td>
+            <a
+              href="https://www.geeksforgeeks.org/iterative-preorder-traversal/"
+              >Link</a
+            >
+          </td>
+          <td>Link</td>
+          <td class="center">
+            <input type="checkbox" class="checkbox" >
+           </td>
+        </tr>
+        <tr>
+          <td>
+            Postorder Traversal of a tree both using recursion and Iteration
+          </td>
+          <td>
+            <a
+              href="https://www.geeksforgeeks.org/tree-traversals-inorder-preorder-and-postorder/"
+              >Link</a
+            >
+          </td>
+          <td>Link</td>
+          <td class="center">
+            <input type="checkbox" class="checkbox" >
+           </td>
+        </tr>
+        <tr>
+          <td>Left View of a tree</td>
+          <td>
+            <a href="https://www.geeksforgeeks.org/print-left-view-binary-tree/"
+              >Link</a
+            >
+          </td>
+          <td>
+            <a
+              href="https://practice.geeksforgeeks.org/problems/left-view-of-binary-tree/1"
+              >Link</a
+            >
+          </td>
+          <td class="center">
+            <input type="checkbox" class="checkbox" >
+           </td>
+        </tr>
+        <tr>
+          <td>Right View of Tree</td>
+          <td>
+            <a
+              href="https://www.geeksforgeeks.org/print-right-view-binary-tree-2/"
+              >Link</a
+            >
+          </td>
+          <td>
+            <a
+              href="https://practice.geeksforgeeks.org/problems/right-view-of-binary-tree/1"
+              >Link</a
+            >
+          </td>
+          <td class="center">
+            <input type="checkbox" class="checkbox" >
+           </td>
+        </tr>
+        <tr>
+          <td>Top View of a tree</td>
+          <td>
+            <a
+              href="https://www.geeksforgeeks.org/print-nodes-top-view-binary-tree/"
+              >Link</a
+            >
+          </td>
+          <td>
+            <a
+              href="https://practice.geeksforgeeks.org/problems/top-view-of-binary-tree/1"
+              >Link</a
+            >
+          </td>
+          <td class="center">
+            <input type="checkbox" class="checkbox" >
+           </td>
+        </tr>
+        <tr>
+          <td>Bottom View of a tree</td>
+          <td>
+            <a href="https://www.geeksforgeeks.org/bottom-view-binary-tree/"
+              >Link</a
+            >
+          </td>
+          <td>
+            <a
+              href="https://practice.geeksforgeeks.org/problems/bottom-view-of-binary-tree/1"
+              >Link</a
+            >
+          </td>
+          <td class="center">
+            <input type="checkbox" class="checkbox" >
+           </td>
+        </tr>
+        <tr>
+          <td>Zig-Zag traversal of a binary tree</td>
+          <td>
+            <a href="https://www.geeksforgeeks.org/zigzag-tree-traversal/"
+              >Link</a
+            >
+          </td>
+          <td>
+            <a
+              href="https://practice.geeksforgeeks.org/problems/zigzag-tree-traversal/1"
+              >Link</a
+            >
+          </td>
+          <td class="center">
+            <input type="checkbox" class="checkbox" >
+           </td>
+        </tr>
+        <tr>
+          <td>Check if a tree is balanced or not</td>
+          <td>
+            <a
+              href="https://www.geeksforgeeks.org/how-to-determine-if-a-binary-tree-is-balanced/"
+              >Link</a
+            >
+          </td>
+          <td>
+            <a
+              href="https://practice.geeksforgeeks.org/problems/check-for-balanced-tree/1"
+              >Link</a
+            >
+          </td>
+          <td class="center">
+            <input type="checkbox" class="checkbox" >
+           </td>
+        </tr>
+        <tr>
+          <td>Diagonal Traversal of a Binary tree</td>
+          <td>
+            <a
+              href="https://www.geeksforgeeks.org/diagonal-traversal-of-binary-tree/"
+              >Link</a
+            >
+          </td>
+          <td>
+            <a
+              href="https://practice.geeksforgeeks.org/problems/diagonal-traversal-of-binary-tree/1"
+              >Link</a
+            >
+          </td>
+          <td class="center">
+            <input type="checkbox" class="checkbox" >
+           </td>
+        </tr>
+        <tr>
+          <td>Boundary traversal of a Binary tree</td>
+          <td>
+            <a
+              href="https://www.geeksforgeeks.org/boundary-traversal-of-binary-tree/"
+              >Link</a
+            >
+          </td>
+          <td>
+            <a
+              href="https://practice.geeksforgeeks.org/problems/boundary-traversal-of-binary-tree/1"
+              >Link</a
+            >
+          </td>
+          <td class="center">
+            <input type="checkbox" class="checkbox" >
+           </td>
+        </tr>
+        <tr>
+          <td>Construct Binary Tree from String with Bracket Representation</td>
+          <td>
+            <a
+              href="https://www.geeksforgeeks.org/construct-binary-tree-string-bracket-representation/"
+              >Link</a
+            >
+          </td>
+          <td>Link</td>
+          <td class="center">
+            <input type="checkbox" class="checkbox" >
+           </td>
+        </tr>
+        <tr>
+          <td>Convert Binary tree into Doubly Linked List</td>
+          <td>
+            <a
+              href="https://www.geeksforgeeks.org/convert-a-given-binary-tree-to-doubly-linked-list-set-2/"
+              >Link</a
+            >
+          </td>
+          <td>
+            <a
+              href="https://practice.geeksforgeeks.org/problems/binary-tree-to-dll/1"
+              >Link</a
+            >
+          </td>
+          <td class="center">
+            <input type="checkbox" class="checkbox" >
+           </td>
+        </tr>
+        <tr>
+          <td>Convert Binary tree into Sum tree</td>
+          <td>
+            <a
+              href="https://www.geeksforgeeks.org/convert-a-given-tree-to-sum-tree/"
+              >Link</a
+            >
+          </td>
+          <td>
+            <a
+              href="https://practice.geeksforgeeks.org/problems/transform-to-sum-tree/1"
+              >Link</a
+            >
+          </td>
+          <td class="center">
+            <input type="checkbox" class="checkbox" >
+           </td>
+        </tr>
+        <tr>
+          <td>Construct Binary tree from Inorder and preorder traversal</td>
+          <td>
+            <a
+              href="https://www.geeksforgeeks.org/construct-tree-from-given-inorder-and-preorder-traversal/"
+              >Link</a
+            >
+          </td>
+          <td>
+            <a
+              href="https://practice.geeksforgeeks.org/problems/construct-tree-1/1"
+              >Link</a
+            >
+          </td>
+          <td class="center">
+            <input type="checkbox" class="checkbox" >
+           </td>
+        </tr>
+        <tr>
+          <td>Find minimum swaps required to convert a Binary tree into BST</td>
+          <td>
+            <a
+              href="https://www.geeksforgeeks.org/minimum-swap-required-convert-binary-tree-binary-search-tree/#:~:text=Given%20the%20array%20representation%20of,it%20into%20Binary%20Search%20Tree.&amp;text=Swap%201%3A%20Swap%20node%208,node%209%20with%20node%2010."
+              >Link</a
+            >
+          </td>
+          <td>Link</td>
+          <td class="center">
+            <input type="checkbox" class="checkbox" >
+           </td>
+        </tr>
+        <tr>
+          <td>Check if Binary tree is Sum tree or not</td>
+          <td>
+            <a
+              href="https://www.geeksforgeeks.org/check-if-a-given-binary-tree-is-sumtree/"
+              >Link</a
+            >
+          </td>
+          <td>
+            <a href="https://practice.geeksforgeeks.org/problems/sum-tree/1"
+              >Link</a
+            >
+          </td>
+          <td class="center">
+            <input type="checkbox" class="checkbox" >
+           </td>
+        </tr>
+        <tr>
+          <td>Check if all leaf nodes are at same level or not</td>
+          <td>
+            <a href="https://www.geeksforgeeks.org/check-leaves-level/">Link</a>
+          </td>
+          <td>
+            <a
+              href="https://practice.geeksforgeeks.org/problems/leaf-at-same-level/1"
+              >Link</a
+            >
+          </td>
+          <td class="center">
+            <input type="checkbox" class="checkbox" >
+           </td>
+        </tr>
+        <tr>
+          <td>
+            Check if a Binary Tree contains duplicate subtrees of size 2 or more
+            [ IMP ]
+          </td>
+          <td>
+            <a
+              href="https://www.geeksforgeeks.org/check-binary-tree-contains-duplicate-subtrees-size-2/"
+              >Link</a
+            >
+          </td>
+          <td>
+            <a
+              href="https://practice.geeksforgeeks.org/problems/duplicate-subtree-in-binary-tree/1"
+              >Link</a
+            >
+          </td>
+          <td class="center">
+            <input type="checkbox" class="checkbox" >
+           </td>
+        </tr>
+        <tr>
+          <td>Check if 2 trees are mirror or not</td>
+          <td>
+            <a href="https://www.geeksforgeeks.org/check-mirror-n-ary-tree/"
+              >Link</a
+            >
+          </td>
+          <td>
+            <a
+              href="https://practice.geeksforgeeks.org/problems/check-mirror-in-n-ary-tree/0"
+              >Link</a
+            >
+          </td>
+          <td class="center">
+            <input type="checkbox" class="checkbox" >
+           </td>
+        </tr>
+        <tr>
+          <td>Sum of Nodes on the Longest path from root to leaf node</td>
+          <td>
+            <a
+              href="https://www.geeksforgeeks.org/sum-nodes-longest-path-root-leaf-node/"
+              >Link</a
+            >
+          </td>
+          <td>
+            <a
+              href="https://practice.geeksforgeeks.org/problems/sum-of-the-longest-bloodline-of-a-tree/1"
+              >Link</a
+            >
+          </td>
+          <td class="center">
+            <input type="checkbox" class="checkbox" >
+           </td>
+        </tr>
+        <tr>
+          <td>Check if given graph is tree or not. &nbsp;[ IMP ]</td>
+          <td>
+            <a
+              href="https://www.geeksforgeeks.org/check-given-graph-tree/#:~:text=Since%20the%20graph%20is%20undirected,graph%20is%20connected%2C%20otherwise%20not."
+              >Link</a
+            >
+          </td>
+          <td>Link</td>
+          <td class="center">
+            <input type="checkbox" class="checkbox" >
+           </td>
+        </tr>
+        <tr>
+          <td>Find Largest subtree sum in a tree</td>
+          <td>
+            <a
+              href="https://www.geeksforgeeks.org/find-largest-subtree-sum-tree/"
+              >Link</a
+            >
+          </td>
+          <td>Link</td>
+          <td class="center">
+            <input type="checkbox" class="checkbox" >
+           </td>
+        </tr>
+        <tr>
+          <td>
+            Maximum Sum of nodes in Binary tree such that no two are adjacent
+          </td>
+          <td>
+            <a
+              href="https://www.geeksforgeeks.org/maximum-sum-nodes-binary-tree-no-two-adjacent/"
+              >Link</a
+            >
+          </td>
+          <td>
+            <a
+              href="https://practice.geeksforgeeks.org/problems/maximum-sum-of-non-adjacent-nodes/1/"
+              >Link</a
+            >
+          </td>
+          <td class="center">
+            <input type="checkbox" class="checkbox" >
+           </td>
+        </tr>
+        <tr>
+          <td>Print all “K” Sum paths in a Binary tree</td>
+          <td>
+            <a
+              href="https://www.geeksforgeeks.org/print-k-sum-paths-binary-tree/"
+              >Link</a
+            >
+          </td>
+          <td>
+            <a href="https://practice.geeksforgeeks.org/problems/k-sum-paths/1"
+              >Link</a
+            >
+          </td>
+          <td class="center">
+            <input type="checkbox" class="checkbox" >
+           </td>
+        </tr>
+        <tr>
+          <td>Find LCA in a Binary tree</td>
+          <td>
+            <a
+              href="https://www.geeksforgeeks.org/lowest-common-ancestor-binary-tree-set-1/"
+              >Link</a
+            >
+          </td>
+          <td>
+            <a
+              href="https://practice.geeksforgeeks.org/problems/lowest-common-ancestor-in-a-binary-tree/1"
+              >Link</a
+            >
+          </td>
+          <td class="center">
+            <input type="checkbox" class="checkbox" >
+           </td>
+        </tr>
+        <tr>
+          <td>Find distance between 2 nodes in a Binary tree</td>
+          <td>
+            <a
+              href="https://www.geeksforgeeks.org/find-distance-between-two-nodes-of-a-binary-tree/"
+              >Link</a
+            >
+          </td>
+          <td>
+            <a
+              href="https://practice.geeksforgeeks.org/problems/min-distance-between-two-given-nodes-of-a-binary-tree/1"
+              >Link</a
+            >
+          </td>
+          <td class="center">
+            <input type="checkbox" class="checkbox" >
+           </td>
+        </tr>
+        <tr>
+          <td>Kth Ancestor of node in a Binary tree</td>
+          <td>
+            <a
+              href="https://www.geeksforgeeks.org/kth-ancestor-node-binary-tree-set-2/"
+              >Link</a
+            >
+          </td>
+          <td>
+            <a
+              href="https://practice.geeksforgeeks.org/problems/kth-ancestor-in-a-tree/1/"
+              >Link</a
+            >
+          </td>
+          <td class="center">
+            <input type="checkbox" class="checkbox" >
+           </td>
+        </tr>
+        <tr>
+          <td>Find all Duplicate subtrees in a Binary tree [ IMP ]</td>
+          <td>
+            <a href="https://www.geeksforgeeks.org/find-duplicate-subtrees/"
+              >Link</a
+            >
+          </td>
+          <td>
+            <a
+              href="https://practice.geeksforgeeks.org/problems/duplicate-subtrees/1"
+              >Link</a
+            >
+          </td>
+          <td class="center">
+            <input type="checkbox" class="checkbox" >
+           </td>
+        </tr>
+        <tr>
+          <td>Tree Isomorphism Problem</td>
+          <td>
+            <a href="https://www.geeksforgeeks.org/tree-isomorphism-problem/"
+              >Link</a
+            >
+          </td>
+          <td>
+            <a
+              href="https://practice.geeksforgeeks.org/problems/check-if-tree-is-isomorphic/1"
+              >Link</a
+            >
+          </td>
+          <td class="center">
+            <input type="checkbox" class="checkbox" >
+           </td>
+        </tr>
+      </tbody>
+    </table>
+
+    <script
+      src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+      integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js"
+      integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js"
+      integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+      crossorigin="anonymous"
+    ></script>
+  <script>
+      // console.log("running.......\n")
+      // Get all checkboxes by class name
+      const checkboxes = document.querySelectorAll('.checkbox');
+      // console.log("running.......\n")
+      // Attach event listeners to each checkbox
+      checkboxes.forEach((checkbox) => {
+          checkbox.addEventListener('change', function (event) {
+              const isChecked = event.target.checked;
+  
+              // Extract checkbox data
+              const checkboxData = {
+                  id: event.target.id,
+                  name: event.target.name
+              };
+              const type = "bt"
+              const pageName = "bt.ejs"
+              console.log(checkboxData)
+              // Send checkbox state to the server
+              fetch('/checkbox/update', {
+                  method: 'POST',
+                  headers: {
+                      'Content-Type': 'application/json'
+                  },
+                  body: JSON.stringify({ isChecked, checkboxData, type, pageName})
+              })
+              .then((response) => response.json())
+              .then((data) => {
+                  // Handle the server response if needed
+              })
+              .catch((error) => {
+                  console.error('Error:', error);
+              });
+          });
+      });
+  </script>
+  </body>
+</html>

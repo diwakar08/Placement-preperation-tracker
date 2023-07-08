@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+
+    <!-- Bootstrap CSS -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      crossorigin="anonymous"
+    />
+    <style>
+      .container {
+        display: flex;
+        margin: 10vh auto;
+        justify-content: center;
+      }
+      .elitmus {
+        margin: 0px 5vh;
+        background-color: rgb(204, 194, 194);
+        height: 40vh;
+        width: 55vh;
+        text-align: center;
+      }
+       
+      .Cpp-Buzz {
+        text-align: center;
+        background-color: rgb(173, 173, 241);
+        height: 40vh;
+        width: 55vh;
+       
+      }
+      #btn1 {
+        border-radius: 1vh;
+        background-color: #007bff;
+        color: white;
+        height: 5vh;
+        width: 13vh;
+         margin-top: 3vh;
+         align-self: center;
+      }
+      /* Cpp buzz Button */
+      #btn2 {
+        border-radius: 1vh;
+        background-color: #dc3545;
+        color: white;
+        height: 5vh;
+        width: 13vh;
+        align-self: center;
+      }
+      #desc{
+          
+         margin-left: 1px;
+        
+      }
+      .elitmus:hover {
+        background-color: rgb(152, 203, 228);
+        box-shadow: 10px 5px 10px rgb(222, 145, 145) ;
+        
+      }
+      .paraBtn{
+        display: flex;
+        flex-direction: column;
+      }
+      .Cpp-Buzz:hover {
+        box-shadow: 10px 5px 10px rgb(100, 83, 83) ;
+        background-color: rgb(167, 228, 152);
+      }
+      #btn1:hover {
+        background-color: #984cf5;
+        font-weight: bold;
+        font-style: italic;
+        position: relative;
+      }
+      #btn2:hover {
+        background-color: #659ad1;
+        font-weight: bold;
+        font-style: italic;
+        
+      }
+    
+      @media screen and (max-width: 1000px) {
+        .container{
+          display: flex;
+          flex-direction: column;
+          flex-wrap: wrap;
+          justify-content: center;
+          margin: 4vh auto;
+        }
+        .Cpp-Buzz{
+          align-self: center;
+          margin: 4vh auto;
+        }
+        .elitmus{
+          align-self: center;
+          margin: 4vh auto;
+        } 
+      } 
+    </style>
+    
+    <title>Misc Learning</title>
+  </head>
+  <body>
+    <!-- Navigation Bar the Website -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <a class="navbar-brand" href="/">Placement Prep Tracker</a>
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-toggle="collapse"
+        data-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item active">
+            <a class="nav-link" href="#"
+              >Home <span class="sr-only">(current)</span></a
+            >
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="About">About</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="contact">Contact Us</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a
+              class="nav-link dropdown-toggle"
+              href="#"
+              id="navbarDropdown"
+              role="button"
+              data-toggle="dropdown"
+              aria-haspopup="true"
+              aria-expanded="false"
+            >
+              Content
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <a class="dropdown-item" href="dsa">DSA</a>
+              <a class="dropdown-item" href="web">Web Development</a>
+              <div class="dropdown-divider"></div>
+              <a class="dropdown-item" href="core">Core Subjects</a>
+            </div>
+          </li>
+        </ul>
+        <form class="form-inline my-2 my-lg-0">
+          
+          <div class="mx-2">
+            
+              <% if(!session.loggedIn) {%>
+                <button type="button" class="btn btn-danger" mx-2>
+              <a href="login" style="color: white">LogIn</a>
+            </button>
+              <% } else { %>
+                <strong><span class="text-light">Hi <%= username+" " %></span></strong> 
+              <% } %>
+              <% if(!session.loggedIn) { %>
+                <button type="button" class="btn btn-danger" mx-2>
+              <a href="signUp" style="color: white" ;>Signup</a>
+            </button>
+              <% } else { %>
+                <form action="/logout?_method=DELETE" method="POST">
+                  <button class="btn btn-danger ml-1" mx-2 type="submit">Log Out</button>
+              </form>
+            <% } %>
+          </div>
+        </form>
+      </div>
+    </nav>
+
+    <!--Elitmus Container  -->
+    <div class="container">
+      <div class="elitmus">
+        <h1 class="fluid">Elitmus Prep</h1>
+        <h5 style="font-weight: bolder" class="fluid">
+          Start your Preparation for Elitmus
+        </h5>
+        <div class="paraBtn">
+          <p id="desc">eLitmus is a company that helps companies in hiring employees for entry-level jobs. The company conducts pH Test, which is an assessment exam.</p>
+          <button
+            id="btn1"
+            class="fluid"
+            onclick="window.location.href = 'https://www.geeksforgeeks.org/how-to-prepare-for-elitmus-hiring-potential-test-ph-test/';"
+          >
+            Click here
+          </button>
+        </div>
+      </div>
+
+      <div class="Cpp-Buzz fluid">
+        <h1 class="fluid">CPP Buzz</h1>
+        <h5 class="fluid" style="font-weight: bolder">
+          Interview Preparation Website
+        </h5>
+        <div class="paraBtn">
+        <p id="desc">A single platform to get more than 1000+ competitive objective questions, interview questions from various IT companies, tutorials, practice material, solved programs, projects, cheat sheets and Online Test.</p>
+        <button
+          id="btn2"
+          class="fluid"
+          onclick="window.location.href = 'https://www.cppbuzz.com/';"
+        >Click here</button>
+      </div>
+      </div>
+    </div>
+
+    <!--CPP BUZZ Container  -->
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script
+      src="https://code.tidio.co/ujdmaultfhv63pdv3y9wcmyumgk6vddl.js"
+      async
+    ></script>
+    <script
+      src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+      integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js"
+      integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js"
+      integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2> Hi <%= username %></h2>
+
+    <form action="/logout?_method=DELETE" method="POST">
+        <button type="submit">Log Out</button>
+    </form>
+
+    <!-- <a href="/Array">Array</a> -->
+
+    <% for (let i = 0; i < 35; i++) { %>
+            <input type="checkbox" name="<%= i %>" class="checkbox" id="<%= i %>" <%= map[i] == true ? 'checked' : '' %>>
+    <% } %>  
+
+    <script>
+        console.log("running.......\n")
+        // Get all checkboxes by class name
+        const checkboxes = document.querySelectorAll('.checkbox');
+        console.log("running.......\n")
+        // Attach event listeners to each checkbox
+        checkboxes.forEach((checkbox) => {
+            checkbox.addEventListener('change', function (event) {
+                const isChecked = event.target.checked;
+    
+                // Extract checkbox data
+                const checkboxData = {
+                    id: event.target.id,
+                    name: event.target.name
+                };
+                console.log(checkboxData)
+                // Send checkbox state to the server
+                fetch('/checkbox/update', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ isChecked, checkboxData })
+                })
+                .then((response) => response.json())
+                .then((data) => {
+                    // Handle the server response if needed
+                })
+                .catch((error) => {
+                    console.error('Error:', error);
+                });
+            });
+        });
+    </script>
+</body>
+</html>

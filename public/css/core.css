@@ -1,0 +1,110 @@
+* {
+  box-sizing: border-box;
+}
+#main-heading {
+  margin: 5vh auto;
+  color: red;
+  background: linear-gradient(135deg, rgb(204, 22, 22), green, blue);
+}
+.container {
+  display: flex;
+  flex-direction: column;
+  margin: 7vh auto;
+  justify-content: center;
+}
+.mar {
+  margin-top: 2vh;
+}
+.item1 {
+  margin: 5vh auto;
+  height: 40vh;
+  width: 65vw;
+}
+
+.item1-1 {
+  display: flex;
+  justify-content: space-between;
+  /* background-color: red; */
+  margin-top: 5vh;
+  flex-wrap: wrap;
+}
+.img1 {
+  margin: 0 3vw;
+  display: inline;
+}
+
+.buttons {
+  display: inline-block;
+  gap: 2vh;
+  margin: 7vh auto;
+}
+.item2 {
+  margin: 5vh auto;
+  height: 40vh;
+  width: 65vw;
+}
+.item3 {
+  margin: 5vh auto;
+
+  height: 40vh;
+  width: 65vw;
+}
+.item4 {
+  margin: 5vh auto;
+
+  height: 40vh;
+  width: 65vw;
+}
+.item5 {
+  margin: 5vh auto;
+  height: 40vh;
+  width: 65vw;
+}
+.items {
+  box-shadow: 10px 5px 10px rgb(151, 147, 147);
+}
+.item1:hover {
+  box-shadow: 10px 5px 10px rgb(138, 76, 231);
+}
+.item2:hover {
+  box-shadow: 10px 5px 10px rgb(94, 227, 123);
+}
+.item3:hover {
+  box-shadow: 10px 5px 10px rgb(63, 197, 255);
+}
+.item4:hover {
+  box-shadow: 10px 5px 10px rgb(212, 243, 74);
+}
+.item5:hover {
+  box-shadow: 10px 5px 10px rgb(203, 36, 139);
+}
+.para p {
+  font-weight: bold;
+}
+/* For responsiveness of Website */
+
+@media screen and (max-width: 1028px) {
+  .item1-1 {
+    display: flex;
+    flex-direction: column-reverse;
+    margin: 0 auto;
+    align-self: center;
+  }
+  .text-center {
+    margin-top: 2vh;
+  }
+  #img1 {
+    height: 0;
+    width: 0;
+  }
+  .buttons {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 1vh;
+  }
+  .items {
+    margin: 5vh auto;
+    height: fit-content;
+  }
+}

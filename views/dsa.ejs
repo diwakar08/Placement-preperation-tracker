@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+
+    <!-- Bootstrap CSS -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="cs.css" />
+    <style>
+      body {
+        background: #bed3e5;
+        /* background: linear-gradient(90deg,red,green,blue,pink,yellow,magenta,white,orange); */
+        margin: 0;
+        padding: 0;
+      }
+      .fw-bold {
+        font-weight: bold;
+        font-size: 3vh;
+      }
+      .dflex {
+        display: flex;
+        text-align: center;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+      }
+      .card:hover {
+        box-shadow: 10px 5px 10px rgb(84, 142, 229);
+      }
+      @media screen and (max-width: 1054px) {
+        .c1,
+        .c2,
+        .c3,
+        .c4,
+        .c5 {
+          display: flex;
+          flex-flow: column wrap;
+          justify-content: center;
+          align-items: center;
+          margin: auto 0vh;
+        }
+        .card {
+          display: flex;
+          margin: auto auto;
+          height: 20vh;
+          width: 5vh;
+        }
+
+        .card-body {
+          display: flex;
+          margin: auto auto;
+          height: fit-content;
+          width: fit-content;
+        }
+      }
+      @media screen and (max-width: 380px) {
+        body {
+          background-color: rgb(236, 185, 185);
+          height: fit-content;
+          width: 57vh;
+          margin: auto auto;
+        }
+      }
+    </style>
+    <title>DSA PAGE</title>
+  </head>
+  <body>
+    <!-- Navigation Bar the Website -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <a class="navbar-brand" href="/">Placement Prep Tracker</a>
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-toggle="collapse"
+        data-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item active">
+            <a class="nav-link" href="index"
+              >Home <span class="sr-only">(current)</span></a
+            >
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="About">About</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="contact">Contact Us</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a
+              class="nav-link dropdown-toggle"
+              href="#"
+              id="navbarDropdown"
+              role="button"
+              data-toggle="dropdown"
+              aria-haspopup="true"
+              aria-expanded="false"
+            >
+              Content
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <a class="dropdown-item" href="dsa">DSA</a>
+              <a class="dropdown-item" href="web">Web Development</a>
+              <div class="dropdown-divider"></div>
+              <a class="dropdown-item" href="core">Core Subjects</a>
+            </div>
+          </li>
+        </ul>
+        <form class="form-inline my-2 my-lg-0" action="/logOut?_method=DELETE" method="POST">
+          <div class="mx-2">
+            
+              <% if(!session.loggedIn) {%>
+                <button type="button" class="btn btn-danger" mx-2>
+              <a href="login" style="color: white">LogIn</a></button>
+              <% } else { %>
+              <strong><span class="text-light">Hi <%= username %></span></strong>
+              <% } %>
+              <% if(!session.loggedIn) { %>
+              <button type="button" class="btn btn-danger" "mx-2">
+                <a href="/signUp" style="color: white">Signup</a>
+              </button>
+              <% } else { %>
+              <button class="btn btn-danger ml-1" type="submit">Log Out</button>
+              <% } %>
+          </div>
+        </form>
+      </div>
+    </nav>
+
+    <!-- CARDS OF DSA HTML PAGE -->
+
+    <!-- Div 1 -->
+    <div class="c1 d-flex justify-content-center fluid">
+      <div
+        class="card text-black mb-3 mx-2 my-4"
+        style="height: 36vh; width: 48vh"
+        id="Div1"
+      >
+        <div class="card-header text-danger fw-bold">Array</div>
+        <div class="card-body dflex">
+          <h5 class="card-title">Total Question - 36</h5>
+          <p class="card-text"></p>
+          <a
+            class="btn btn-outline-success btn-lg"
+            href="Array"
+            role="button"
+            >Start</a
+          >
+        </div>
+      </div>
+
+      <div
+        class="card text-black mb-3 mx-2 my-4"
+        style="width: 48vh; height: 36vh"
+      >
+        <div class="card-header text-primary fw-bold">String</div>
+        <div class="card-body dflex">
+          <h5 class="card-title">Total Question - 43</h5>
+          <p class="card-text"></p>
+          <a
+            class="btn btn-outline-success btn-lg"
+            href="string"
+            role="button"
+            >Start</a
+          >
+        </div>
+      </div>
+
+      <div
+        class="card text-black mb-3 mx-2 my-4"
+        style="width: 48vh; height: 36vh"
+      >
+        <div class="card-header text-success fw-bold">Linked List</div>
+        <div class="card-body dflex">
+          <h5 class="card-title">Total Question - 36</h5>
+          <p class="card-text"></p>
+          <a
+            class="btn btn-outline-success btn-lg"
+            href="linked_list"
+            role="button"
+            >Start</a
+          >
+        </div>
+      </div>
+    </div>
+
+    <!-- Div 2 -->
+    <div class="c2 d-flex justify-content-center">
+      <div
+        class="card text-black mb-3 mx-2 my-3"
+        style="width: 48vh; height: 36vh"
+      >
+        <div class="card-header text-primary fw-bold">Greedy</div>
+        <div class="card-body dflex">
+          <h5 class="card-title">Total Question - 35</h5>
+          <p class="card-text"></p>
+          <a
+            class="btn btn-outline-success btn-lg"
+            href="greedy"
+            role="button"
+            >Start</a
+          >
+        </div>
+      </div>
+
+      <div
+        class="card text-black mb-3 mx-2 my-3"
+        style="width: 48vh; height: 36vh"
+      >
+        <div class="card-header text-success fw-bold">Binary Tree</div>
+        <div class="card-body dflex">
+          <h5 class="card-title">Total Question - 35</h5>
+          <p class="card-text"></p>
+          <a class="btn btn-outline-success btn-lg" href="bt" role="button"
+            >Start</a
+          >
+        </div>
+      </div>
+
+      <div
+        class="card text-black mb-3 mx-2 my-3"
+        style="width: 48vh; height: 36vh"
+      >
+        <div class="card-header text-danger fw-bold">Binary search Tree</div>
+        <div class="card-body dflex">
+          <h5 class="card-title">Total Question - 22</h5>
+          <p class="card-text"></p>
+          <a
+            class="btn btn-outline-success btn-lg"
+            href="bst"
+            role="button"
+            >Start</a
+          >
+        </div>
+      </div>
+    </div>
+
+    <!-- Div 3 -->
+    <div class="c3 d-flex justify-content-center">
+      <div
+        class="card bg-light mb-3 mx-2 my-3"
+        style="width: 48vh; height: 36vh"
+      >
+        <div class="card-header text-danger fw-bold">Graph</div>
+        <div class="card-body dflex">
+          <h5 class="card-title">Total Question - 44</h5>
+          <p class="card-text"></p>
+          <a
+            class="btn btn-outline-success btn-lg"
+            href="graph"
+            role="button"
+            >Start</a
+          >
+        </div>
+      </div>
+
+      <div
+        class="card text-black mb-3 mx-2 my-3"
+        style="width: 48vh; height: 36vh"
+      >
+        <div class="card-header text-primary fw-bold">Matrix</div>
+        <div class="card-body dflex">
+          <h5 class="card-title">Total Question - 10</h5>
+          <p class="card-text"></p>
+          <a
+            class="btn btn-outline-success btn-lg"
+            href="mat"
+            role="button"
+            >Start</a
+          >
+        </div>
+      </div>
+      <div
+        class="card text-black mb-3 mx-2 my-3"
+        style="width: 48vh; height: 36vh"
+      >
+        <div class="card-header text-success fw-bold">
+          Sorting and Searching
+        </div>
+        <div class="card-body dflex">
+          <h5 class="card-title">Total Question - 36</h5>
+          <p class="card-text"></p>
+          <a
+            class="btn btn-outline-success btn-lg"
+            href="sort"
+            role="button"
+            >Start</a
+          >
+        </div>
+      </div>
+    </div>
+
+    <!-- Div - 4 -->
+    <div class="c4 d-flex justify-content-center">
+      <div
+        class="card text-black mb-2 mx-2 my-3"
+        style="width: 48vh; height: 36vh"
+      >
+        <div class="card-header text-success fw-bold">BackTracking</div>
+        <div class="card-body dflex">
+          <h5 class="card-title">Total Question - 19</h5>
+          <p class="card-text"></p>
+          <a
+            class="btn btn-outline-success btn-lg"
+            href="backtrack"
+            role="button"
+            >Start</a
+          >
+        </div>
+      </div>
+
+      <div
+        class="card text-black mb-2 mx-2 my-3"
+        style="width: 48vh; height: 36vh"
+      >
+        <div class="card-header text-primary fw-bold">Stack and Queues</div>
+        <div class="card-body dflex">
+          <h5 class="card-title">Total Question - 38</h5>
+          <p class="card-text"></p>
+          <a
+            class="btn btn-outline-success btn-lg"
+            href="stack"
+            role="button"
+            >Start</a
+          >
+        </div>
+      </div>
+
+      <div
+        class="card text-black mb-2 mx-2 my-3"
+        style="width: 48vh; height: 36vh"
+      >
+        <div class="card-header text-danger fw-bold">Heap</div>
+        <div class="card-body dflex">
+          <h5 class="card-title">Total Question - 18</h5>
+          <p class="card-text"></p>
+          <a
+            class="btn btn-outline-success btn-lg"
+            href="heap"
+            role="button"
+            >Start</a
+          >
+        </div>
+      </div>
+    </div>
+
+    <!-- Div - 5 -->
+    <div class="c5 d-flex justify-content-center">
+      <div
+        class="card text-black mb-3 mx-2 my-4"
+        style="width: 48vh; height: 36vh"
+      >
+        <div class="card-header text-danger fw-bold">Trie</div>
+        <div class="card-body dflex">
+          <h5 class="card-title">Total Question - 6</h5>
+          <p class="card-text"></p>
+          <a
+            class="btn btn-outline-success btn-lg"
+            href="trie"
+            role="button"
+            >Start</a
+          >
+        </div>
+      </div>
+
+      <div
+        class="card text-black mb-3 mx-2 my-4"
+        style="width: 48vh; height: 36vh"
+      >
+        <div class="card-header text-success fw-bold">Dynamic Programming</div>
+        <div class="card-body dflex">
+          <h5 class="card-title">Total Question - 60</h5>
+          <p class="card-text"></p>
+          <a class="btn btn-outline-success btn-lg" href="dp" role="button"
+            >Start</a
+          >
+        </div>
+      </div>
+
+      <div
+        class="card text-black mb-3 mx-2 my-4"
+        style="width: 48vh; height: 36vh"
+      >
+        <div class="card-header text-primary fw-bold">Bit Manipulation</div>
+        <div class="card-body dflex">
+          <h5 class="card-title">Total Question - 10</h5>
+          <p class="card-text"></p>
+          <a
+            class="btn btn-outline-success btn-lg"
+            href="bit"
+            role="button"
+            >Start</a
+          >
+        </div>
+      </div>
+    </div>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script
+      src="https://code.tidio.co/ujdmaultfhv63pdv3y9wcmyumgk6vddl.js"
+      async
+    ></script>
+    <script
+      src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+      integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js"
+      integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js"
+      integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>

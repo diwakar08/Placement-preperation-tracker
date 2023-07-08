@@ -1,0 +1,745 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+
+    <!-- Bootstrap CSS -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      crossorigin="anonymous"
+    />
+    <title>Greedy Question</title>
+    <style>
+      body {
+        background-color: black;
+        color: white;
+      }
+      #Array_table {
+        border: 2px solid white;
+        border-collapse: collapse;
+      }
+      table tr {
+        border: 2px solid white;
+      }
+      table td {
+        padding-left: 8px;
+
+        border: 2px solid white;
+      }
+      table th {
+        border: 2px solid white;
+        font-weight: bolder;
+        text-align: center;
+        font-size: 20px;
+      }
+      .center {
+        text-align: center;
+      }
+      table {
+        margin: 18px auto;
+      }
+      td a{
+        list-style: none;
+        color: white;
+      }
+      a:visited{
+        color: red;
+      }
+      #cbox{ 
+        height: 3vh;
+        width: 3vh; 
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Navigation Bar the Website -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <a class="navbar-brand" href="/">Placement Prep Tracker</a>
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-toggle="collapse"
+        data-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item active">
+            <a class="nav-link" href="#"
+              >Home <span class="sr-only">(current)</span></a
+            >
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="About">About</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="contact">Contact Us</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a
+              class="nav-link dropdown-toggle"
+              href="#"
+              id="navbarDropdown"
+              role="button"
+              data-toggle="dropdown"
+              aria-haspopup="true"
+              aria-expanded="false"
+            >
+              Content
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <a class="dropdown-item" href="dsa">DSA</a>
+              <a class="dropdown-item" href="web">Web Development</a>
+              <div class="dropdown-divider"></div>
+              <a class="dropdown-item" href="core">Core Subjects</a>
+            </div>
+          </li>
+        </ul>
+        <form class="form-inline my-2 my-lg-0">
+          
+          <div class="mx-2">
+            
+              <% if(!session.loggedIn) {%>
+                <button type="button" class="btn btn-danger" mx-2>
+              <a href="login" style="color: white">LogIn</a>
+            </button>
+              <% } else { %>
+                <strong><span class="text-light">Hi <%= username+" " %></span></strong> 
+              <% } %>
+              <% if(!session.loggedIn) { %>
+                <button type="button" class="btn btn-danger" mx-2>
+              <a href="signUp" style="color: white" ;>Signup</a>
+            </button>
+              <% } else { %>
+                <form action="/logout?_method=DELETE" method="POST">
+                  <button class="btn btn-danger ml-1" mx-2 type="submit">Log Out</button>
+              </form>
+            <% } %>
+          </div>
+        </form>
+      </div>
+    </nav>
+
+    
+    <table>
+      <thead>
+        <tr>
+          <th>Question</th>
+          <th>Article</th>
+          <th>Practice</th>
+          <th>Done 👍</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Activity Selection Problem</td>
+          <td>
+            <a
+              href="https://www.geeksforgeeks.org/activity-selection-problem-greedy-algo-1/"
+              >Link</a
+            >
+          </td>
+          <td>
+            <a
+              href="https://practice.geeksforgeeks.org/problems/n-meetings-in-one-room/0"
+              >Link</a
+            >
+          </td>
+          <td class="center">
+            <input type="checkbox" class="checkbox" >
+           </td>
+        </tr>
+        <tr>
+          <td>Job Sequencing Problem</td>
+          <td>
+            <a href="https://www.geeksforgeeks.org/weighted-job-scheduling/"
+              >Link</a
+            >
+          </td>
+          <td>
+            <a
+              href="https://practice.geeksforgeeks.org/problems/job-sequencing-problem/0"
+              >Link</a
+            >
+          </td>
+          <td class="center">
+            <input type="checkbox" class="checkbox" >
+           </td>
+        </tr>
+        <tr>
+          <td>Huffman Coding</td>
+          <td>
+            <a
+              href="https://www.geeksforgeeks.org/huffman-coding-greedy-algo-3/"
+              >Link</a
+            >
+          </td>
+          <td>
+            <a
+              href="https://practice.geeksforgeeks.org/problems/huffman-encoding/0"
+              >Link</a
+            >
+          </td>
+          <td class="center">
+            <input type="checkbox" class="checkbox" >
+           </td>
+        </tr>
+        <tr>
+          <td>Water Connection Problem</td>
+          <td>
+            <a href="https://www.geeksforgeeks.org/water-connection-problem/"
+              >Link</a
+            >
+          </td>
+          <td>
+            <a
+              href="https://practice.geeksforgeeks.org/problems/water-connection-problem/0"
+              >Link</a
+            >
+          </td>
+          <td class="center">
+            <input type="checkbox" class="checkbox" >
+           </td>
+        </tr>
+        <tr>
+          <td>Fractional Knapsack Problem</td>
+          <td>
+            <a href="https://www.geeksforgeeks.org/fractional-knapsack-problem/"
+              >Link</a
+            >
+          </td>
+          <td>
+            <a
+              href="https://practice.geeksforgeeks.org/problems/fractional-knapsack/0"
+              >Link</a
+            >
+          </td>
+          <td class="center">
+            <input type="checkbox" class="checkbox" >
+           </td>
+        </tr>
+        <tr>
+          <td>Greedy Algorithm to find Minimum number of Coins</td>
+          <td>
+            <a
+              href="https://www.geeksforgeeks.org/greedy-algorithm-to-find-minimum-number-of-coins/"
+              >Link</a
+            >
+          </td>
+          <td>
+            <a href="https://practice.geeksforgeeks.org/problems/coin-piles/0"
+              >Link</a
+            >
+          </td>
+          <td class="center">
+            <input type="checkbox" class="checkbox" >
+           </td>
+        </tr>
+        <tr>
+          <td>Maximum trains for which stoppage can be provided</td>
+          <td>
+            <a
+              href="https://www.geeksforgeeks.org/maximum-trains-stoppage-can-provided/"
+              >Link</a
+            >
+          </td>
+          <td>Link</td>
+          <td class="center">
+            <input type="checkbox" class="checkbox" >
+           </td>
+        </tr>
+        <tr>
+          <td>Minimum Platforms Problem</td>
+          <td>
+            <a
+              href="https://www.geeksforgeeks.org/minimum-number-platforms-required-railwaybus-station/"
+              >Link</a
+            >
+          </td>
+          <td>
+            <a
+              href="https://practice.geeksforgeeks.org/problems/minimum-platforms/0"
+              >Link</a
+            >
+          </td>
+          <td class="center">
+            <input type="checkbox" class="checkbox" >
+           </td>
+        </tr>
+        <tr>
+          <td>Buy Maximum Stocks if i stocks can be bought on i-th day</td>
+          <td>
+            <a
+              href="https://www.geeksforgeeks.org/buy-maximum-stocks-stocks-can-bought-th-day/"
+              >Link</a
+            >
+          </td>
+          <td>Link</td>
+          <td class="center">
+            <input type="checkbox" class="checkbox" >
+           </td>
+        </tr>
+        <tr>
+          <td>Find the minimum and maximum amount to buy all N candies</td>
+          <td>
+            <a
+              href="https://www.geeksforgeeks.org/find-minimum-maximum-amount-buy-n-candies/"
+              >Link</a
+            >
+          </td>
+          <td>
+            <a
+              href="https://practice.geeksforgeeks.org/problems/shop-in-candy-store/0"
+              >Link</a
+            >
+          </td>
+          <td class="center">
+            <input type="checkbox" class="checkbox" >
+           </td>
+        </tr>
+        <tr>
+          <td>
+            Minimize Cash Flow among a given set of friends who have borrowed
+            money from each other
+          </td>
+          <td>
+            <a
+              href="https://www.geeksforgeeks.org/minimize-cash-flow-among-given-set-friends-borrowed-money/"
+              >Link</a
+            >
+          </td>
+          <td>Link</td>
+          <td class="center">
+            <input type="checkbox" class="checkbox" >
+           </td>
+        </tr>
+        <tr>
+          <td>Minimum Cost to cut a board into squares</td>
+          <td>
+            <a
+              href="https://www.geeksforgeeks.org/minimum-cost-cut-board-squares/"
+              >Link</a
+            >
+          </td>
+          <td>Link</td>
+          <td class="center">
+            <input type="checkbox" class="checkbox" >
+           </td>
+        </tr>
+        <tr>
+          <td>Check if it is possible to survive on Island</td>
+          <td><a href="https://www.geeksforgeeks.org/survival/">Link</a></td>
+          <td>Link</td>
+          <td class="center">
+            <input type="checkbox" class="checkbox" >
+           </td>
+        </tr>
+        <tr>
+          <td>Find maximum meetings in one room</td>
+          <td>
+            <a
+              href="https://www.geeksforgeeks.org/find-maximum-meetings-in-one-room/"
+              >Link</a
+            >
+          </td>
+          <td>Link</td>
+          <td class="center">
+            <input type="checkbox" class="checkbox" >
+           </td>
+        </tr>
+        <tr>
+          <td>Maximum product subset of an array</td>
+          <td>
+            <a
+              href="https://www.geeksforgeeks.org/maximum-product-subset-array/"
+              >Link</a
+            >
+          </td>
+          <td>Link</td>
+          <td class="center">
+            <input type="checkbox" class="checkbox" >
+           </td>
+        </tr>
+        <tr>
+          <td>Maximize array sum after K negations</td>
+          <td>
+            <a
+              href="https://www.geeksforgeeks.org/maximize-array-sun-after-k-negation-operations/"
+              >Link</a
+            >
+          </td>
+          <td>
+            <a
+              href="https://practice.geeksforgeeks.org/problems/maximize-sum-after-k-negations/0"
+              >Link</a
+            >
+          </td>
+          <td class="center">
+            <input type="checkbox" class="checkbox" >
+           </td>
+        </tr>
+        <tr>
+          <td>Maximize the sum of arr[i]*i</td>
+          <td>
+            <a href="https://www.geeksforgeeks.org/maximize-sum-arrii/">Link</a>
+          </td>
+          <td>
+            <a
+              href="https://practice.geeksforgeeks.org/problems/maximize-arrii-of-an-array/0"
+              >Link</a
+            >
+          </td>
+          <td class="center">
+            <input type="checkbox" class="checkbox" >
+           </td>
+        </tr>
+        <tr>
+          <td>Maximum sum of absolute difference of an array</td>
+          <td>
+            <a
+              href="https://www.geeksforgeeks.org/minimum-sum-absolute-difference-pairs-two-arrays/#:~:text=It%20consists%20of%20two%20steps,result%20to%20the%20sum%20S."
+              >Link</a
+            >
+          </td>
+          <td>Link</td>
+          <td class="center">
+            <input type="checkbox" class="checkbox" >
+           </td>
+        </tr>
+        <tr>
+          <td>Maximize sum of consecutive differences in a circular array</td>
+          <td>
+            <a
+              href="https://www.geeksforgeeks.org/maximize-sum-consecutive-differences-circular-array/"
+              >Link</a
+            >
+          </td>
+          <td>
+            <a
+              href="https://practice.geeksforgeeks.org/problems/swap-and-maximize/0"
+              >Link</a
+            >
+          </td>
+          <td class="center">
+            <input type="checkbox" class="checkbox" >
+           </td>
+        </tr>
+        <tr>
+          <td>Minimum sum of absolute difference of pairs of two arrays</td>
+          <td>
+            <a
+              href="https://www.geeksforgeeks.org/minimum-sum-absolute-difference-pairs-two-arrays/#:~:text=It%20consists%20of%20two%20steps,result%20to%20the%20sum%20S."
+              >Link</a
+            >
+          </td>
+          <td>Link</td>
+          <td class="center">
+            <input type="checkbox" class="checkbox" >
+           </td>
+        </tr>
+        <tr>
+          <td>Program for Shortest Job First (or SJF) CPU Scheduling</td>
+          <td>
+            <a
+              href="https://www.geeksforgeeks.org/program-for-shortest-job-first-or-sjf-cpu-scheduling-set-1-non-preemptive/"
+              >Link</a
+            >
+          </td>
+          <td>Link</td>
+          <td class="center">
+            <input type="checkbox" class="checkbox" >
+           </td>
+        </tr>
+        <tr>
+          <td>
+            Program for Least Recently Used (LRU) Page Replacement algorithm
+          </td>
+          <td>
+            <a
+              href="https://www.geeksforgeeks.org/program-for-least-recently-used-lru-page-replacement-algorithm/"
+              >Link</a
+            >
+          </td>
+          <td>
+            <a
+              href="https://practice.geeksforgeeks.org/problems/page-faults-in-lru/0"
+              >Link</a
+            >
+          </td>
+          <td class="center">
+            <input type="checkbox" class="checkbox" >
+           </td>
+        </tr>
+        <tr>
+          <td>Smallest subset with sum greater than all other elements</td>
+          <td>
+            <a
+              href="https://www.geeksforgeeks.org/smallest-subset-sum-greater-elements/"
+              >Link</a
+            >
+          </td>
+          <td>Link</td>
+          <td class="center">
+            <input type="checkbox" class="checkbox" >
+           </td>
+        </tr>
+        <tr>
+          <td>Chocolate Distribution Problem</td>
+          <td>
+            <a
+              href="https://www.geeksforgeeks.org/chocolate-distribution-problem/"
+              >Link</a
+            >
+          </td>
+          <td>
+            <a
+              href="https://practice.geeksforgeeks.org/problems/chocolate-distribution-problem/0"
+              >Link</a
+            >
+          </td>
+          <td class="center">
+            <input type="checkbox" class="checkbox" >
+           </td>
+        </tr>
+        <tr>
+          <td>DEFKIN -Defense of a Kingdom</td>
+          <td>Link</td>
+          <td>
+            <a
+              target="_blank"
+              rel="noopener noreferrer nofollow"
+              href="https://www.spoj.com/problems/DEFKIN/"
+              >Link</a
+            >
+          </td>
+          <td class="center">
+            <input type="checkbox" class="checkbox" >
+           </td>
+        </tr>
+        <tr>
+          <td>DIEHARD -DIE HARD</td>
+          <td>Link</td>
+          <td>
+            <a
+              target="_blank"
+              rel="noopener noreferrer nofollow"
+              href="https://www.spoj.com/problems/DIEHARD/"
+              >Link</a
+            >
+          </td>
+          <td class="center">
+            <input type="checkbox" class="checkbox" >
+           </td>
+        </tr>
+        <tr>
+          <td>GERGOVIA -Wine trading in Gergovia</td>
+          <td>Link</td>
+          <td>
+            <a
+              target="_blank"
+              rel="noopener noreferrer nofollow"
+              href="https://www.spoj.com/problems/GERGOVIA/"
+              >Link</a
+            >
+          </td>
+          <td class="center">
+            <input type="checkbox" class="checkbox" >
+           </td>
+        </tr>
+        <tr>
+          <td>Picking Up Chicks</td>
+          <td>Link</td>
+          <td>
+            <a
+              target="_blank"
+              rel="noopener noreferrer nofollow"
+              href="https://www.spoj.com/problems/GCJ101BB/"
+              >Link</a
+            >
+          </td>
+          <td class="center">
+            <input type="checkbox" class="checkbox" >
+           </td>
+        </tr>
+        <tr>
+          <td>CHOCOLA –Chocolate</td>
+          <td>Link</td>
+          <td>
+            <a
+              target="_blank"
+              rel="noopener noreferrer nofollow"
+              href="https://www.spoj.com/problems/CHOCOLA/"
+              >Link</a
+            >
+          </td>
+          <td class="center">
+            <input type="checkbox" class="checkbox" >
+           </td>
+        </tr>
+        <tr>
+          <td>ARRANGE -Arranging Amplifiers</td>
+          <td>Link</td>
+          <td>
+            <a
+              target="_blank"
+              rel="noopener noreferrer nofollow"
+              href="https://www.spoj.com/problems/ARRANGE/"
+              >Link</a
+            >
+          </td>
+          <td class="center">
+            <input type="checkbox" class="checkbox" >
+           </td>
+        </tr>
+        <tr>
+          <td>K Centers Problem</td>
+          <td>
+            <a
+              href="https://www.geeksforgeeks.org/k-centers-problem-set-1-greedy-approximate-algorithm/"
+              >Link</a
+            >
+          </td>
+          <td>Link</td>
+          <td class="center">
+            <input type="checkbox" class="checkbox" >
+           </td>
+        </tr>
+        <tr>
+          <td>Minimum Cost of ropes</td>
+          <td>
+            <a
+              href="https://www.geeksforgeeks.org/connect-n-ropes-minimum-cost/"
+              >Link</a
+            >
+          </td>
+          <td>
+            <a
+              href="https://practice.geeksforgeeks.org/problems/minimum-cost-of-ropes/0"
+              >Link</a
+            >
+          </td>
+          <td class="center">
+            <input type="checkbox" class="checkbox" >
+           </td>
+        </tr>
+        <tr>
+          <td>
+            Find smallest number with given number of digits and sum of digits
+          </td>
+          <td>
+            <a
+              href="https://www.geeksforgeeks.org/find-smallest-number-with-given-number-of-digits-and-digit-sum/"
+              >Link</a
+            >
+          </td>
+          <td>
+            <a
+              href="https://practice.geeksforgeeks.org/problems/smallest-number5829/1"
+              >Link</a
+            >
+          </td>
+          <td class="center">
+            <input type="checkbox" class="checkbox" >
+           </td>
+        </tr>
+        <tr>
+          <td>
+            Rearrange characters in a string such that no two adjacent are same
+          </td>
+          <td>
+            <a
+              href="https://www.geeksforgeeks.org/rearrange-characters-string-no-two-adjacent/"
+              >Link</a
+            >
+          </td>
+          <td>
+            <a
+              href="https://practice.geeksforgeeks.org/problems/rearrange-characters/0"
+              >Link</a
+            >
+          </td>
+          <td class="center">
+            <input type="checkbox" class="checkbox" >
+           </td>
+        </tr>
+        <tr>
+          <td>Find maximum sum possible equal sum of three stacks</td>
+          <td>
+            <a
+              href="https://www.geeksforgeeks.org/find-maximum-sum-possible-equal-sum-three-stacks/"
+              >Link</a
+            >
+          </td>
+          <td>Link</td>
+          <td class="center">
+            <input type="checkbox" class="checkbox" >
+           </td>
+        </tr>
+      </tbody>
+    </table>
+
+    <script
+      src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+      integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js"
+      integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js"
+      integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+      crossorigin="anonymous"
+    ></script>
+  <script>
+      // console.log("running.......\n")
+      // Get all checkboxes by class name
+      const checkboxes = document.querySelectorAll('.checkbox');
+      // console.log("running.......\n")
+      // Attach event listeners to each checkbox
+      checkboxes.forEach((checkbox) => {
+          checkbox.addEventListener('change', function (event) {
+              const isChecked = event.target.checked;
+  
+              // Extract checkbox data
+              const checkboxData = {
+                  id: event.target.id,
+                  name: event.target.name
+              };
+              const type = "greedy"
+              const pageName = "greedy.ejs"
+              console.log(checkboxData)
+              // Send checkbox state to the server
+              fetch('/checkbox/update', {
+                  method: 'POST',
+                  headers: {
+                      'Content-Type': 'application/json'
+                  },
+                  body: JSON.stringify({ isChecked, checkboxData, type, pageName})
+              })
+              .then((response) => response.json())
+              .then((data) => {
+                  // Handle the server response if needed
+              })
+              .catch((error) => {
+                  console.error('Error:', error);
+              });
+          });
+      });
+  </script>
+  </body>
+</html>

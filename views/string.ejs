@@ -1,0 +1,980 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+
+    <!-- Bootstrap CSS -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      crossorigin="anonymous"
+    />
+    <title>string Question</title>
+    <style>
+      body {
+        background-color: black;
+        color: white;
+      }
+      #Array_table {
+        border: 2px solid white;
+        border-collapse: collapse;
+      }
+      table tr {
+        border: 2px solid white;
+      }
+      table td {
+        padding-left: 8px;
+
+        border: 2px solid white;
+      }
+      table th {
+        border: 2px solid white;
+        font-weight: bolder;
+        text-align: center;
+        font-size: 20px;
+      }
+      .center {
+        text-align: center;
+      }
+      table {
+        margin: 18px auto;
+      }
+      td a{
+        list-style: none;
+        color: white;
+      }
+      a:visited{
+        color: red;
+      }
+      #cbox{ 
+        height: 3vh;
+        width: 3vh; 
+      }
+    </style>
+    
+  </head>
+  <body>
+    <!-- Navigation Bar the Website -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <a class="navbar-brand" href="/">Placement Prep Tracker</a>
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-toggle="collapse"
+        data-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item active">
+            <a class="nav-link" href="#"
+              >Home <span class="sr-only">(current)</span></a
+            >
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="About">About</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="contact">Contact Us</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a
+              class="nav-link dropdown-toggle"
+              href="#"
+              id="navbarDropdown"
+              role="button"
+              data-toggle="dropdown"
+              aria-haspopup="true"
+              aria-expanded="false"
+            >
+              Content
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <a class="dropdown-item" href="dsa">DSA</a>
+              <a class="dropdown-item" href="web">Web Development</a>
+              <div class="dropdown-divider"></div>
+              <a class="dropdown-item" href="core">Core Subjects</a>
+            </div>
+          </li>
+        </ul>
+        
+          <form action="/logout?_method=DELETE"  method="POST" class="form-inline my-2 my-lg-0">
+          
+          <div class="mx-2">
+            
+              <% if(!session.loggedIn) {%>
+                <button type="button" class="btn btn-danger" >
+              <a href="login" style="color: white">LogIn</a>
+            </button>
+              <% } else { %>
+                <strong><span class="text-light">Hi <%= username+" " %></span></strong> 
+              <% } %>
+              <% if(!session.loggedIn) { %>
+                <button type="button" class="btn btn-danger" mx-2>
+              <a href="signUp" style="color: white" >Signup</a>
+            </button>
+              <% } else { %>
+                <% console.log("kk"+map[0]) %>
+                  <button class="btn btn-danger ml-1"  type="submit">Log Out</button>
+              
+            <% } %>
+          </div>
+        </form>
+      </div>
+    </nav>
+    
+
+    <table>
+      <thead>
+        <tr>
+          <th>Question</th>
+          <th>Article</th>
+          <th>Practice</th>
+          <th>Done 👍</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Reverse a String</td>
+          <td>
+            <a
+              href="https://www.geeksforgeeks.org/program-reverse-string-iterative-recursive/"
+              >Link</a
+            >
+          </td>
+          <td>
+            <a
+              href="https://practice.geeksforgeeks.org/problems/reverse-a-string/1"
+              >Link</a
+            >
+          </td>
+          <td class="center">
+            <input type="checkbox" class="checkbox" <%= (map[0] == true) ? 'checked ':'' %> >
+           </td>
+        </tr>
+        <tr>
+          <td>Check whether a String is Palindrome or not</td>
+          <td>
+            <a
+              href="https://www.geeksforgeeks.org/c-program-check-given-string-palindrome/"
+              >Link</a
+            >
+          </td>
+          <td>
+            <a
+              href="https://practice.geeksforgeeks.org/problems/palindrome-string0817/1"
+              >Link</a
+            >
+          </td>
+          <td class="center">
+            <input type="checkbox" class="checkbox" <%= (map[1]==true) ?  'checked ':''%> >
+           </td>
+        </tr>
+        <tr>
+          <td>Find Duplicate characters in a string</td>
+          <td>
+            <a
+              href="https://www.geeksforgeeks.org/print-all-the-duplicates-in-the-input-string/"
+              >Link</a
+            >
+          </td>
+          <td>NA</td>
+          <td class="center">
+            <input type="checkbox" class="checkbox" <%= (map[2]==true) ?  'checked ':''%> >
+           </td>
+        </tr>
+        <tr>
+          <td>Why strings are immutable in Java?</td>
+          <td>
+            <a
+              href="https://www.geeksforgeeks.org/java-string-is-immutable-what-exactly-is-the-meaning/"
+              >Link</a
+            >
+          </td>
+          <td>NA</td>
+          <td class="center">
+            <input type="checkbox" class="checkbox" <%= (map[3]==true) ?  'checked ':''%> >
+           </td>
+        </tr>
+        <tr>
+          <td>
+            Write a Code to check whether one string is a rotation of another
+          </td>
+          <td>
+            <a
+              href="https://www.geeksforgeeks.org/a-program-to-check-if-strings-are-rotations-of-each-other/"
+              >Link</a
+            >
+          </td>
+          <td>
+            <a
+              href="https://practice.geeksforgeeks.org/problems/check-if-strings-are-rotations-of-each-other-or-not-1587115620/1"
+              >Link</a
+            >
+          </td>
+          <td class="center">
+            <input type="checkbox" class="checkbox" <%= (map[4]==true) ?  'checked ':''%> >
+           </td>
+        </tr>
+        <tr>
+          <td>
+            Write a Program to check whether a string is a valid shuffle of two
+            strings or not
+          </td>
+          <td>
+            <a
+              href="https://www.geeksforgeeks.org/check-if-the-given-string-is-shuffled-substring-of-another-string/"
+              >Link</a
+            >
+          </td>
+          <td>NA</td>
+          <td class="center">
+            <input type="checkbox" class="checkbox" <%= (map[5]==true) ?  'checked ':''%> >
+           </td>
+        </tr>
+        <tr>
+          <td>Count and Say problem</td>
+          <td>
+            <a href="https://www.geeksforgeeks.org/look-and-say-sequence/"
+              >Link</a
+            >
+          </td>
+          <td>
+            <a
+              href="https://practice.geeksforgeeks.org/problems/decode-the-pattern1138/1"
+              >Link</a
+            >
+          </td>
+          <td class="center">
+            <input type="checkbox" class="checkbox" <%= (map[6]==true) ?  'checked ':''%> >
+           </td>
+        </tr>
+        <tr>
+          <td>
+            Write a program to find the longest Palindrome in a string.[ Longest
+            palindromic Substring]
+          </td>
+          <td>
+            <a
+              href="https://www.geeksforgeeks.org/longest-palindromic-substring-set-2/"
+              >Link</a
+            >
+          </td>
+          <td>
+            <a
+              href="https://practice.geeksforgeeks.org/problems/longest-palindrome-in-a-string/0"
+              >Link</a
+            >
+          </td>
+          <td class="center">
+            <input type="checkbox" class="checkbox" <%= (map[7]==true) ?  'checked ':''%> >
+           </td>
+        </tr>
+        <tr>
+          <td>Find Longest Recurring Subsequence in String</td>
+          <td>
+            <a
+              href="https://www.geeksforgeeks.org/longest-repeating-subsequence/"
+              >Link</a
+            >
+          </td>
+          <td>
+            <a
+              href="https://practice.geeksforgeeks.org/problems/longest-repeating-subsequence/0"
+              >Link</a
+            >
+          </td>
+          <td class="center">
+            <input type="checkbox" class="checkbox" <%= (map[8]==true) ?  'checked ':''%> >
+           </td>
+        </tr>
+        <tr>
+          <td>Print all Subsequences of a string.</td>
+          <td>
+            <a href="https://www.geeksforgeeks.org/print-subsequences-string/"
+              >Link</a
+            >
+          </td>
+          <td>NA</td>
+          <td class="center">
+            <input type="checkbox" class="checkbox" <%= (map[9]==true) ?  'checked ':''%> >
+           </td>
+        </tr>
+        <tr>
+          <td>Print all the permutations of the given string</td>
+          <td>
+            <a
+              href="https://www.geeksforgeeks.org/write-a-c-program-to-print-all-permutations-of-a-given-string/"
+              >Link</a
+            >
+          </td>
+          <td>
+            <a
+              href="https://practice.geeksforgeeks.org/problems/permutations-of-a-given-string/0"
+              >Link</a
+            >
+          </td>
+          <td class="center">
+            <input type="checkbox" class="checkbox" <%= (map[10]==true) ?  'checked ':''%> >
+           </td>
+        </tr>
+        <tr>
+          <td>
+            Split the Binary string into two substring with equal 0’s and 1’s
+          </td>
+          <td>
+            <a
+              href="https://www.geeksforgeeks.org/split-the-binary-string-into-substrings-with-equal-number-of-0s-and-1s/"
+              >Link</a
+            >
+          </td>
+          <td>NA</td>
+          <td class="center">
+            <input type="checkbox" class="checkbox" <%= (map[11]==true) ?  'checked ':''%> >
+           </td>
+        </tr>
+        <tr>
+          <td>Word Wrap Problem [VERY IMP].</td>
+          <td>
+            <a href="https://www.geeksforgeeks.org/word-wrap-problem-dp-19/"
+              >Link</a
+            >
+          </td>
+          <td>
+            <a href="https://practice.geeksforgeeks.org/problems/word-wrap/0"
+              >Link</a
+            >
+          </td>
+          <td class="center">
+            <input type="checkbox" class="checkbox" <%= (map[12]==true) ?  'checked ':''%> >
+           </td>
+        </tr>
+        <tr>
+          <td>EDIT Distance [Very Imp]</td>
+          <td>
+            <a href="https://www.geeksforgeeks.org/edit-distance-dp-5/">Link</a>
+          </td>
+          <td>
+            <a
+              href="https://practice.geeksforgeeks.org/problems/edit-distance3702/1"
+              >Link</a
+            >
+          </td>
+          <td class="center">
+            <input type="checkbox" class="checkbox" <%= (map[13]==true) ?  'checked ':''%> >
+           </td>
+        </tr>
+        <tr>
+          <td>
+            Find next greater number with same set of digits. [Very Very IMP]
+          </td>
+          <td>
+            <a
+              href="https://www.geeksforgeeks.org/find-next-greater-number-set-digits/"
+              >Link</a
+            >
+          </td>
+          <td>
+            <a
+              href="https://practice.geeksforgeeks.org/problems/next-permutation/0"
+              >Link</a
+            >
+          </td>
+          <td class="center">
+            <input type="checkbox" class="checkbox" <%= (map[14]==true) ?  'checked ':''%> >
+           </td>
+        </tr>
+        <tr>
+          <td>Balanced Parenthesis problem.[Imp]</td>
+          <td>
+            <a
+              href="https://www.geeksforgeeks.org/check-for-balanced-parentheses-in-an-expression/"
+              >Link</a
+            >
+          </td>
+          <td>
+            <a
+              href="https://practice.geeksforgeeks.org/problems/parenthesis-checker/0"
+              >Link</a
+            >
+          </td>
+          <td class="center">
+            <input type="checkbox" class="checkbox" <%= (map[15]==true) ?  'checked ':''%> >
+           </td>
+        </tr>
+        <tr>
+          <td>Word break Problem[ Very Imp]</td>
+          <td>
+            <a href="https://www.geeksforgeeks.org/word-break-problem-dp-32/"
+              >Link</a
+            >
+          </td>
+          <td>
+            <a href="https://practice.geeksforgeeks.org/problems/word-break/0"
+              >Link</a
+            >
+          </td>
+          <td class="center">
+            <input type="checkbox" class="checkbox" <%= (map[16]==true) ?  'checked ':''%> >
+           </td>
+        </tr>
+        <tr>
+          <td>Rabin Karp Algorithm</td>
+          <td>
+            <a
+              href="https://www.geeksforgeeks.org/rabin-karp-algorithm-for-pattern-searching/"
+              >Link</a
+            >
+          </td>
+          <td>
+            <a
+              href="https://practice.geeksforgeeks.org/problems/31272eef104840f7430ad9fd1d43b434a4b9596b/1/"
+              >Link</a
+            >
+          </td>
+          <td class="center">
+            <input type="checkbox" class="checkbox" <%= (map[17]==true) ?  'checked ':''%> >
+           </td>
+        </tr>
+        <tr>
+          <td>KMP Algorithm</td>
+          <td>
+            <a href="https://www.geeksforgeeks.org/longest-prefix-also-suffix/"
+              >Link</a
+            >
+          </td>
+          <td>
+            <a
+              href="https://practice.geeksforgeeks.org/problems/longest-prefix-suffix2527/1"
+              >Link</a
+            >
+          </td>
+          <td class="center">
+            <input type="checkbox" class="checkbox" <%= (map[18]==true) ?  'checked ':''%> >
+           </td>
+        </tr>
+        <tr>
+          <td>
+            Convert a Sentence into its equivalent mobile numeric keypad
+            sequence.
+          </td>
+          <td>
+            <a
+              href="https://www.geeksforgeeks.org/convert-sentence-equivalent-mobile-numeric-keypad-sequence/"
+              >Link</a
+            >
+          </td>
+          <td>
+            <a
+              href="https://practice.geeksforgeeks.org/problems/convert-a-sentence-into-its-equivalent-mobile-numeric-keypad-sequence/0"
+              >Link</a
+            >
+          </td>
+          <td class="center">
+            <input type="checkbox" class="checkbox" <%= (map[19]==true) ?  'checked ':''%> >
+           </td>
+        </tr>
+        <tr>
+          <td>
+            Minimum number of bracket reversals needed to make an expression
+            balanced.
+          </td>
+          <td>
+            <a
+              href="https://www.geeksforgeeks.org/minimum-number-of-bracket-reversals-needed-to-make-an-expression-balanced/"
+              >Link</a
+            >
+          </td>
+          <td>
+            <a
+              href="https://practice.geeksforgeeks.org/problems/count-the-reversals/0"
+              >Link</a
+            >
+          </td>
+          <td class="center">
+            <input type="checkbox" class="checkbox" <%= (map[20]==true) ?  'checked ':''%> >
+           </td>
+        </tr>
+        <tr>
+          <td>Count All Palindromic Subsequence in a given String.</td>
+          <td>
+            <a
+              href="https://www.geeksforgeeks.org/count-palindromic-subsequence-given-string/"
+              >Link</a
+            >
+          </td>
+          <td>
+            <a
+              href="https://practice.geeksforgeeks.org/problems/count-palindromic-subsequences/1"
+              >Link</a
+            >
+          </td>
+          <td class="center">
+            <input type="checkbox" class="checkbox" <%= (map[21]==true) ?  'checked ':''%> >
+           </td>
+        </tr>
+        <tr>
+          <td>Count of number of given string in 2D character array</td>
+          <td>
+            <a
+              href="https://www.geeksforgeeks.org/find-count-number-given-string-present-2d-character-array/"
+              >Link</a
+            >
+          </td>
+          <td>
+            <a
+              href="https://practice.geeksforgeeks.org/problems/count-occurences-of-a-given-word-in-a-2-d-array/1/"
+              >Link</a
+            >
+          </td>
+          <td class="center">
+            <input type="checkbox" class="checkbox" <%= (map[22]==true) ?  'checked ':''%> >
+           </td>
+        </tr>
+        <tr>
+          <td>Search a Word in a 2D Grid of characters.</td>
+          <td>
+            <a
+              href="https://www.geeksforgeeks.org/search-a-word-in-a-2d-grid-of-characters/"
+              >Link</a
+            >
+          </td>
+          <td>
+            <a
+              href="https://practice.geeksforgeeks.org/problems/find-the-string-in-grid/0"
+              >Link</a
+            >
+          </td>
+          <td class="center">
+            <input type="checkbox" class="checkbox" <%= (map[23]==true) ?  'checked ':''%> >
+           </td>
+        </tr>
+        <tr>
+          <td>Boyer Moore Algorithm for Pattern Searching.</td>
+          <td>
+            <a
+              href="https://www.geeksforgeeks.org/boyer-moore-algorithm-for-pattern-searching/"
+              >Link</a
+            >
+          </td>
+          <td>
+            <a
+              href="https://practice.geeksforgeeks.org/problems/pattern-searching5231/1"
+              >Link</a
+            >
+          </td>
+          <td class="center">
+            <input type="checkbox" class="checkbox" <%= (map[24]==true) ?  'checked ':''%> >
+           </td>
+        </tr>
+        <tr>
+          <td>Converting Roman Numerals to Decimal</td>
+          <td>
+            <a
+              href="https://www.geeksforgeeks.org/converting-roman-numerals-decimal-lying-1-3999/"
+              >Link</a
+            >
+          </td>
+          <td>
+            <a
+              href="https://practice.geeksforgeeks.org/problems/roman-number-to-integer/0"
+              >Link</a
+            >
+          </td>
+          <td class="center">
+            <input type="checkbox" class="checkbox" <%= (map[25]==true) ?  'checked ':''%> >
+           </td>
+        </tr>
+        <tr>
+          <td>Longest Common Prefix</td>
+          <td>
+            <a
+              href="https://www.geeksforgeeks.org/longest-common-prefix-using-word-by-word-matching/"
+              >Link</a
+            >
+          </td>
+          <td>
+            <a
+              href="https://practice.geeksforgeeks.org/problems/longest-common-prefix-in-an-array5129/1/"
+              >Link</a
+            >
+          </td>
+          <td class="center">
+            <input type="checkbox" class="checkbox" <%= (map[26]==true) ?  'checked ':''%> >
+           </td>
+        </tr>
+        <tr>
+          <td>Number of flips to make binary string alternate</td>
+          <td>
+            <a
+              href="https://www.geeksforgeeks.org/number-flips-make-binary-string-alternate/"
+              >Link</a
+            >
+          </td>
+          <td>
+            <a
+              href="https://practice.geeksforgeeks.org/problems/min-number-of-flips/0"
+              >Link</a
+            >
+          </td>
+          <td class="center">
+            <input type="checkbox" class="checkbox" <%= (map[27]==true) ?  'checked ':''%> >
+           </td>
+        </tr>
+        <tr>
+          <td>Find the first repeated word in string.</td>
+          <td>
+            <a
+              href="https://www.geeksforgeeks.org/find-first-repeated-word-string/"
+              >Link</a
+            >
+          </td>
+          <td>
+            <a
+              href="https://practice.geeksforgeeks.org/problems/find-first-repeated-character4108/1"
+              >Link</a
+            >
+          </td>
+          <td class="center">
+            <input type="checkbox" class="checkbox" <%= (map[28]==true) ?  'checked ':''%> >
+           </td>
+        </tr>
+        <tr>
+          <td>Minimum number of swaps for bracket balancing.</td>
+          <td>
+            <a
+              href="https://www.geeksforgeeks.org/minimum-swaps-bracket-balancing/"
+              >Link</a
+            >
+          </td>
+          <td>
+            <a
+              href="https://practice.geeksforgeeks.org/problems/minimum-swaps-for-bracket-balancing/0"
+              >Link</a
+            >
+          </td>
+          <td class="center">
+            <input type="checkbox" class="checkbox" <%= (map[29]==true) ?  'checked ':''%> >
+           </td>
+        </tr>
+        <tr>
+          <td>Find the longest common subsequence between two strings.</td>
+          <td>
+            <a
+              href="https://www.geeksforgeeks.org/longest-common-subsequence-dp-4/"
+              >Link</a
+            >
+          </td>
+          <td>
+            <a
+              href="https://practice.geeksforgeeks.org/problems/longest-common-subsequence/0"
+              >Link</a
+            >
+          </td>
+          <td class="center">
+            <input type="checkbox" class="checkbox" <%= (map[30]==true) ?  'checked ':''%> >
+           </td>
+        </tr>
+        <tr>
+          <td>
+            Program to generate all possible valid IP addresses from given
+            &nbsp;string.
+          </td>
+          <td>
+            <a
+              href="https://www.geeksforgeeks.org/program-generate-possible-valid-ip-addresses-given-string/"
+              >Link</a
+            >
+          </td>
+          <td>
+            <a
+              href="https://practice.geeksforgeeks.org/problems/generate-ip-addresses/1"
+              >Link</a
+            >
+          </td>
+          <td class="center">
+            <input type="checkbox" class="checkbox" <%= (map[31]==true) ?  'checked ':''%> >
+           </td>
+        </tr>
+        <tr>
+          <td>
+            Write a program to find the smallest window that contains all
+            characters of string itself.
+          </td>
+          <td>
+            <a
+              href="https://www.geeksforgeeks.org/smallest-window-contains-characters-string/"
+              >Link</a
+            >
+          </td>
+          <td>
+            <a
+              href="https://practice.geeksforgeeks.org/problems/smallest-distant-window/0"
+              >Link</a
+            >
+          </td>
+          <td class="center">
+            <input type="checkbox" class="checkbox" <%= (map[32]==true) ?  'checked ':''%> >
+           </td>
+        </tr>
+        <tr>
+          <td>
+            Rearrange characters in a string such that no two adjacent are same
+          </td>
+          <td>
+            <a
+              href="https://www.geeksforgeeks.org/rearrange-characters-string-no-two-adjacent/"
+              >Link</a
+            >
+          </td>
+          <td>
+            <a
+              href="https://practice.geeksforgeeks.org/problems/rearrange-characters/0"
+              >Link</a
+            >
+          </td>
+          <td class="center">
+            <input type="checkbox" class="checkbox" <%= (map[33]==true) ?  'checked ':''%> >
+           </td>
+        </tr>
+        <tr>
+          <td>
+            Minimum characters to be added at front to make string palindrome
+          </td>
+          <td>
+            <a
+              href="https://www.geeksforgeeks.org/minimum-characters-added-front-make-string-palindrome/"
+              >Link</a
+            >
+          </td>
+          <td>
+            <a
+              href="https://practice.geeksforgeeks.org/problems/form-a-palindrome1455/1"
+              >Link</a
+            >
+          </td>
+          <td class="center">
+            <input type="checkbox" class="checkbox" <%= (map[34]==true) ?  'checked ':''%> >
+           </td>
+        </tr>
+        <tr>
+          <td>Given a sequence of words, print all anagrams together</td>
+          <td>
+            <a
+              href="https://www.geeksforgeeks.org/given-a-sequence-of-words-print-all-anagrams-together-using-stl/"
+              >Link</a
+            >
+          </td>
+          <td>
+            <a href="https://practice.geeksforgeeks.org/problems/k-anagrams-1/0"
+              >Link</a
+            >
+          </td>
+          <td class="center">
+            <input type="checkbox" class="checkbox" <%= (map[35]==true) ?  'checked ':''%> >
+           </td>
+        </tr>
+        <tr>
+          <td>
+            Find the smallest window in a string containing all characters of
+            another string
+          </td>
+          <td>
+            <a
+              href="https://www.geeksforgeeks.org/find-the-smallest-window-in-a-string-containing-all-characters-of-another-string/"
+              >Link</a
+            >
+          </td>
+          <td>
+            <a
+              href="https://practice.geeksforgeeks.org/problems/smallest-window-in-a-string-containing-all-the-characters-of-another-string/0"
+              >Link</a
+            >
+          </td>
+          <td class="center">
+            <input type="checkbox" class="checkbox" <%= (map[36]==true) ?  'checked ':''%> >
+           </td>
+        </tr>
+        <tr>
+          <td>Recursively remove all adjacent duplicates</td>
+          <td>
+            <a
+              href="https://www.geeksforgeeks.org/remove-consecutive-duplicates-string/"
+              >Link</a
+            >
+          </td>
+          <td>
+            <a
+              href="https://practice.geeksforgeeks.org/problems/consecutive-elements/0"
+              >Link</a
+            >
+          </td>
+          <td class="center">
+            <input type="checkbox" class="checkbox" <%= (map[37]==true) ?  'checked ':''%> >
+           </td>
+        </tr>
+        <tr>
+          <td>String matching where one string contains wildcard characters</td>
+          <td>
+            <a href="https://www.geeksforgeeks.org/wildcard-character-matching/"
+              >Link</a
+            >
+          </td>
+          <td>
+            <a
+              href="https://practice.geeksforgeeks.org/problems/wildcard-string-matching/0"
+              >Link</a
+            >
+          </td>
+          <td class="center">
+            <input type="checkbox" class="checkbox" <%= (map[38]==true) ?  'checked ':''%> >
+           </td>
+        </tr>
+        <tr>
+          <td>
+            Function to find Number of customers who could not get a computer
+          </td>
+          <td>
+            <a
+              href="https://www.geeksforgeeks.org/function-to-find-number-of-customers-who-could-not-get-a-computer/"
+              >Link</a
+            >
+          </td>
+          <td>NA</td>
+          <td class="center">
+            <input type="checkbox" class="checkbox" <%= (map[39]==true) ?  'checked ':''%> >
+           </td>
+        </tr>
+        <tr>
+          <td>
+            Transform One String to Another using Minimum Number of Given
+            Operation
+          </td>
+          <td>
+            <a
+              href="https://www.geeksforgeeks.org/transform-one-string-to-another-using-minimum-number-of-given-operation/"
+              >Link</a
+            >
+          </td>
+          <td>
+            <a
+              href="https://practice.geeksforgeeks.org/problems/transform-string5648/1"
+              >Link</a
+            >
+          </td>
+          <td class="center">
+            <input type="checkbox" class="checkbox" <%= (map[40]==true) ?  'checked ':''%> >
+           </td>
+        </tr>
+        <tr>
+          <td>Check if two given strings are isomorphic to each other</td>
+          <td>
+            <a
+              href="https://www.geeksforgeeks.org/check-if-two-given-strings-are-isomorphic-to-each-other/"
+              >Link</a
+            >
+          </td>
+          <td>
+            <a
+              href="https://practice.geeksforgeeks.org/problems/isomorphic-strings/0"
+              >Link</a
+            >
+          </td>
+          <td class="center">
+            <input type="checkbox" class="checkbox" <%= (map[41]==true) ?  'checked ':''%> >
+           </td>
+        </tr>
+        <tr>
+          <td>
+            Recursively print all sentences that can be formed from list of word
+            lists
+          </td>
+          <td>
+            <a
+              href="https://www.geeksforgeeks.org/recursively-print-all-sentences-that-can-be-formed-from-list-of-word-lists/"
+              >Link</a
+            >
+          </td>
+          <td>NA</td>
+          <td class="center">
+            <input type="checkbox" class="checkbox" <%= (map[42]==true) ?  'checked ':''%> >
+           </td>
+        </tr>
+      </tbody>
+    </table>
+
+    <script
+      src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+      integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js"
+      integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js"
+      integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+      crossorigin="anonymous"
+    ></script>
+    
+  <script>
+      // console.log("running.......\n")
+      // Get all checkboxes by class name
+      const checkboxes = document.querySelectorAll('.checkbox');
+
+      // checkboxes = document.querySelectorAll('.checkbox');
+  
+        // Update the ID of each checkbox
+        let index1 = 0
+        checkboxes.forEach((checkbox) => {
+          checkbox.id = (index1)
+          checkbox.name = (index1)
+          index1++
+        });
+      // console.log("running.......\n")
+      // Attach event listeners to each checkbox
+      checkboxes.forEach((checkbox) => {
+          checkbox.addEventListener('change', function (event) {
+              const isChecked = event.target.checked;
+  
+              // Extract checkbox data
+              const checkboxData = {
+                  id: event.target.id,
+                  name: event.target.name
+              };
+              const type = "string"
+              const pageName = "string.ejs"
+              console.log(checkboxData)
+              // Send checkbox state to the server
+              fetch('/checkbox/update', {
+                  method: 'POST',
+                  headers: {
+                      'Content-Type': 'application/json'
+                  },
+                  body: JSON.stringify({ isChecked, checkboxData, type, pageName})
+              })
+              .then((response) => response.json())
+              .then((data) => {
+                  // Handle the server response if needed
+              })
+              .catch((error) => {
+                  console.error('Error:', error);
+              });
+          });
+      });
+  </script>
+  </body>
+</html>

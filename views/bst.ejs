@@ -1,0 +1,566 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+
+    <!-- Bootstrap CSS -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      crossorigin="anonymous"
+    />
+    <title>BST Question</title>
+    <style>
+      body {
+        background-color: black;
+        color: white;
+      }
+      #Array_table {
+        border: 2px solid white;
+        border-collapse: collapse;
+      }
+      table tr {
+        border: 2px solid white;
+      }
+      table td {
+        padding-left: 8px;
+
+        border: 2px solid white;
+      }
+      table th {
+        border: 2px solid white;
+        font-weight: bolder;
+        text-align: center;
+        font-size: 20px;
+      }
+      .center {
+        text-align: center;
+      }
+      table {
+        margin: 18px auto;
+      }
+      td a{
+        list-style: none;
+        color: white;
+      }
+      a:visited{
+        color: red;
+      }
+      #cbox{ 
+        height: 3vh;
+        width: 3vh; 
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Navigation Bar the Website -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <a class="navbar-brand" href="/">Placement Prep Tracker</a>
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-toggle="collapse"
+        data-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item active">
+            <a class="nav-link" href="#"
+              >Home <span class="sr-only">(current)</span></a
+            >
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="About">About</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="contact">Contact Us</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a
+              class="nav-link dropdown-toggle"
+              href="#"
+              id="navbarDropdown"
+              role="button"
+              data-toggle="dropdown"
+              aria-haspopup="true"
+              aria-expanded="false"
+            >
+              Content
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <a class="dropdown-item" href="dsa">DSA</a>
+              <a class="dropdown-item" href="web">Web Development</a>
+              <div class="dropdown-divider"></div>
+              <a class="dropdown-item" href="core">Core Subjects</a>
+            </div>
+          </li>
+        </ul>
+        <form class="form-inline my-2 my-lg-0">
+          
+          <div class="mx-2">
+            
+              <% if(!session.loggedIn) {%>
+                <button type="button" class="btn btn-danger" mx-2>
+              <a href="login" style="color: white">LogIn</a>
+            </button>
+              <% } else { %>
+                <strong><span class="text-light">Hi <%= username+" " %></span></strong> 
+              <% } %>
+              <% if(!session.loggedIn) { %>
+                <button type="button" class="btn btn-danger" mx-2>
+              <a href="signUp" style="color: white" ;>Signup</a>
+            </button>
+              <% } else { %>
+                <form action="/logout?_method=DELETE" method="POST">
+                  <button class="btn btn-danger ml-1" mx-2 type="submit">Log Out</button>
+              </form>
+            <% } %>
+          </div>
+        </form>
+      </div>
+    </nav>
+    <table>
+      <thead>
+        <tr>
+          <th>Question</th>
+          <th>Article</th>
+          <th>Practice</th>
+          <th>Done 👍</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Find a value in a BST</td>
+          <td>
+            <a
+              href="https://www.geeksforgeeks.org/binary-search-tree-set-1-search-and-insertion/"
+              >Link</a
+            >
+          </td>
+          <td>Link</td>
+          <td class="center">
+            <input type="checkbox" class="checkbox" >
+           </td>
+        </tr>
+        <tr>
+          <td>Deletion of a node in a BST</td>
+          <td>
+            <a
+              href="https://www.geeksforgeeks.org/binary-search-tree-set-2-delete/"
+              >Link</a
+            >
+          </td>
+          <td>Link</td>
+          <td class="center">
+            <input type="checkbox" class="checkbox" >
+           </td>
+        </tr>
+        <tr>
+          <td>Find min and max value in a BST</td>
+          <td>
+            <a
+              href="https://www.geeksforgeeks.org/find-the-minimum-element-in-a-binary-search-tree/"
+              >Link</a
+            >
+          </td>
+          <td>
+            <a
+              href="https://practice.geeksforgeeks.org/problems/minimum-element-in-bst/1"
+              >Link</a
+            >
+          </td>
+          <td class="center">
+            <input type="checkbox" class="checkbox" >
+           </td>
+        </tr>
+        <tr>
+          <td>Find inorder successor and inorder predecessor in a BST</td>
+          <td>
+            <a
+              href="https://www.geeksforgeeks.org/inorder-predecessor-successor-given-key-bst/"
+              >Link</a
+            >
+          </td>
+          <td>
+            <a
+              href="https://practice.geeksforgeeks.org/problems/predecessor-and-successor/1"
+              >Link</a
+            >
+          </td>
+          <td class="center">
+            <input type="checkbox" class="checkbox" >
+           </td>
+        </tr>
+        <tr>
+          <td>Check if a tree is a BST or not</td>
+          <td>
+            <a
+              href="https://www.geeksforgeeks.org/a-program-to-check-if-a-binary-tree-is-bst-or-not/"
+              >Link</a
+            >
+          </td>
+          <td>
+            <a
+              href="https://practice.geeksforgeeks.org/problems/check-for-bst/1"
+              >Link</a
+            >
+          </td>
+          <td class="center">
+            <input type="checkbox" class="checkbox" >
+           </td>
+        </tr>
+        <tr>
+          <td>Populate Inorder successor of all nodes</td>
+          <td>
+            <a
+              href="https://www.geeksforgeeks.org/populate-inorder-successor-for-all-nodes/"
+              >Link</a
+            >
+          </td>
+          <td>
+            <a
+              href="https://practice.geeksforgeeks.org/problems/populate-inorder-successor-for-all-nodes/1"
+              >Link</a
+            >
+          </td>
+          <td class="center">
+            <input type="checkbox" class="checkbox" >
+           </td>
+        </tr>
+        <tr>
+          <td>Find LCA &nbsp;of 2 nodes in a BST</td>
+          <td>
+            <a
+              href="https://www.geeksforgeeks.org/lowest-common-ancestor-in-a-binary-search-tree/"
+              >Link</a
+            >
+          </td>
+          <td>
+            <a
+              href="https://practice.geeksforgeeks.org/problems/lowest-common-ancestor-in-a-bst/1"
+              >Link</a
+            >
+          </td>
+          <td class="center">
+            <input type="checkbox" class="checkbox" >
+           </td>
+        </tr>
+        <tr>
+          <td>Construct BST from preorder traversal</td>
+          <td>
+            <a
+              href="https://www.geeksforgeeks.org/construct-bst-from-given-preorder-traversa/"
+              >Link</a
+            >
+          </td>
+          <td>Link</td>
+          <td class="center">
+            <input type="checkbox" class="checkbox" >
+           </td>
+        </tr>
+        <tr>
+          <td>Convert Binary tree into BST</td>
+          <td>
+            <a
+              href="https://www.geeksforgeeks.org/binary-tree-to-binary-search-tree-conversion/"
+              >Link</a
+            >
+          </td>
+          <td>
+            <a
+              href="https://practice.geeksforgeeks.org/problems/binary-tree-to-bst/1"
+              >Link</a
+            >
+          </td>
+          <td class="center">
+            <input type="checkbox" class="checkbox" >
+           </td>
+        </tr>
+        <tr>
+          <td>Convert a normal BST into a Balanced BST</td>
+          <td>
+            <a
+              href="https://www.geeksforgeeks.org/convert-normal-bst-balanced-bst/"
+              >Link</a
+            >
+          </td>
+          <td>
+            <a
+              href="https://practice.geeksforgeeks.org/problems/normal-bst-to-balanced-bst/1"
+              >Link</a
+            >
+          </td>
+          <td class="center">
+            <input type="checkbox" class="checkbox" >
+           </td>
+        </tr>
+        <tr>
+          <td>Merge two BST [ V.V.V&gt;IMP ]</td>
+          <td>
+            <a
+              href="https://www.geeksforgeeks.org/merge-two-balanced-binary-search-trees/"
+              >Link</a
+            >
+          </td>
+          <td>
+            <a
+              href="https://practice.geeksforgeeks.org/problems/merge-two-bst-s/1"
+              >Link</a
+            >
+          </td>
+          <td class="center">
+            <input type="checkbox" class="checkbox" >
+           </td>
+        </tr>
+        <tr>
+          <td>Find Kth largest element in a BST</td>
+          <td>
+            <a
+              href="https://www.geeksforgeeks.org/kth-largest-element-in-bst-when-modification-to-bst-is-not-allowed/"
+              >Link</a
+            >
+          </td>
+          <td>
+            <a
+              href="https://practice.geeksforgeeks.org/problems/kth-largest-element-in-bst/1"
+              >Link</a
+            >
+          </td>
+          <td class="center">
+            <input type="checkbox" class="checkbox" >
+           </td>
+        </tr>
+        <tr>
+          <td>Find Kth smallest element in a BST</td>
+          <td>
+            <a
+              href="https://www.geeksforgeeks.org/find-k-th-smallest-element-in-bst-order-statistics-in-bst/"
+              >Link</a
+            >
+          </td>
+          <td>
+            <a
+              href="https://practice.geeksforgeeks.org/problems/find-k-th-smallest-element-in-bst/1"
+              >Link</a
+            >
+          </td>
+          <td class="center">
+            <input type="checkbox" class="checkbox" >
+           </td>
+        </tr>
+        <tr>
+          <td>Count pairs from 2 BST whose sum is equal to given value “X”</td>
+          <td>
+            <a
+              href="https://www.geeksforgeeks.org/count-pairs-from-two-bsts-whose-sum-is-equal-to-a-given-value-x/"
+              >Link</a
+            >
+          </td>
+          <td>
+            <a
+              href="https://practice.geeksforgeeks.org/problems/brothers-from-different-root/1"
+              >Link</a
+            >
+          </td>
+          <td class="center">
+            <input type="checkbox" class="checkbox" >
+           </td>
+        </tr>
+        <tr>
+          <td>Find the median of BST in O(n) time and O(1) space</td>
+          <td>
+            <a
+              href="https://www.geeksforgeeks.org/find-median-bst-time-o1-space/"
+              >Link</a
+            >
+          </td>
+          <td>
+            <a
+              href="https://practice.geeksforgeeks.org/problems/median-of-bst/1"
+              >Link</a
+            >
+          </td>
+          <td class="center">
+            <input type="checkbox" class="checkbox" >
+           </td>
+        </tr>
+        <tr>
+          <td>Count BST nodes that lie in a given range</td>
+          <td>
+            <a
+              href="https://practice.geeksforgeeks.org/problems/count-bst-nodes-that-lie-in-a-given-range/1"
+              >Link</a
+            >
+          </td>
+          <td>
+            <a
+              href="https://www.geeksforgeeks.org/count-bst-nodes-that-are-in-a-given-range/"
+              >Link</a
+            >
+          </td>
+          <td class="center">
+            <input type="checkbox" class="checkbox" >
+           </td>
+        </tr>
+        <tr>
+          <td>
+            Replace every element with the least greater element on its right
+          </td>
+          <td>
+            <a
+              href="https://www.geeksforgeeks.org/replace-every-element-with-the-least-greater-element-on-its-right/"
+              >Link</a
+            >
+          </td>
+          <td>Link</td>
+          <td class="center">
+            <input type="checkbox" class="checkbox" >
+           </td>
+        </tr>
+        <tr>
+          <td>Given “n” appointments, find the conflicting appointments</td>
+          <td>
+            <a
+              href="https://www.geeksforgeeks.org/given-n-appointments-find-conflicting-appointments/"
+              >Link</a
+            >
+          </td>
+          <td>Link</td>
+          <td class="center">
+            <input type="checkbox" class="checkbox" >
+           </td>
+        </tr>
+        <tr>
+          <td>Check preorder is valid or not</td>
+          <td>
+            <a
+              href="https://www.geeksforgeeks.org/check-if-a-given-array-can-represent-preorder-traversal-of-binary-search-tree/"
+              >Link</a
+            >
+          </td>
+          <td>
+            <a
+              href="https://practice.geeksforgeeks.org/problems/preorder-to-postorder/0"
+              >Link</a
+            >
+          </td>
+          <td class="center">
+            <input type="checkbox" class="checkbox" >
+           </td>
+        </tr>
+        <tr>
+          <td>Check whether BST contains Dead end</td>
+          <td>
+            <a
+              href="https://www.geeksforgeeks.org/check-whether-bst-contains-dead-end-not/"
+              >Link</a
+            >
+          </td>
+          <td>
+            <a
+              href="https://practice.geeksforgeeks.org/problems/check-whether-bst-contains-dead-end/1"
+              >Link</a
+            >
+          </td>
+          <td class="center">
+            <input type="checkbox" class="checkbox" >
+           </td>
+        </tr>
+        <tr>
+          <td>Largest BST in a Binary Tree [ V.V.V.V.V IMP ]</td>
+          <td>
+            <a
+              href="https://www.geeksforgeeks.org/find-the-largest-subtree-in-a-tree-that-is-also-a-bst/"
+              >Link</a
+            >
+          </td>
+          <td>
+            <a href="https://practice.geeksforgeeks.org/problems/largest-bst/1"
+              >Link</a
+            >
+          </td>
+          <td class="center">
+            <input type="checkbox" class="checkbox" >
+           </td>
+        </tr>
+        <tr>
+          <td>Flatten BST to sorted list</td>
+          <td>
+            <a
+              href="https://www.geeksforgeeks.org/flatten-bst-to-sorted-list-increasing-order/"
+              >Link</a
+            >
+          </td>
+          <td>Link</td>
+          <td class="center">
+            <input type="checkbox" class="checkbox" >
+           </td>
+        </tr>
+      </tbody>
+    </table>
+
+    <script
+      src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+      integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js"
+      integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js"
+      integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+      crossorigin="anonymous"
+    ></script>
+  <script>
+      // console.log("running.......\n")
+      // Get all checkboxes by class name
+      const checkboxes = document.querySelectorAll('.checkbox');
+      // console.log("running.......\n")
+      // Attach event listeners to each checkbox
+      checkboxes.forEach((checkbox) => {
+          checkbox.addEventListener('change', function (event) {
+              const isChecked = event.target.checked;
+  
+              // Extract checkbox data
+              const checkboxData = {
+                  id: event.target.id,
+                  name: event.target.name
+              };
+              const type = "bst"
+              const pageName = "bst.ejs"
+              console.log(checkboxData)
+              // Send checkbox state to the server
+              fetch('/checkbox/update', {
+                  method: 'POST',
+                  headers: {
+                      'Content-Type': 'application/json'
+                  },
+                  body: JSON.stringify({ isChecked, checkboxData, type, pageName})
+              })
+              .then((response) => response.json())
+              .then((data) => {
+                  // Handle the server response if needed
+              })
+              .catch((error) => {
+                  console.error('Error:', error);
+              });
+          });
+      });
+  </script>
+  </body>
+</html>

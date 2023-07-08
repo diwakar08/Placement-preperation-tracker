@@ -1,0 +1,86 @@
+.container {
+  margin: 10vh auto;
+}
+
+.items {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 7vh;
+  margin: 5vh auto;
+}
+.items a{
+    text-decoration: none;
+    color: black;
+}
+.items a:hover{
+    text-decoration: none;
+    color: white;
+}
+
+.item1 {
+  background-color: red;
+ 
+}
+.item1:hover {
+  box-shadow: 10px 5px 10px rgb(198, 82, 82);
+  color: azure;
+}
+.item2 {
+  background-color: #03adfc;
+}
+.item2:hover {
+  box-shadow: 10px 5px 10px rgb(53, 145, 190);
+  color: white;
+}
+.item3 {
+  background-color: #673ab7;
+}
+.item3:hover {
+  color: white;
+  box-shadow: 10px 5px 10px #8550e0;
+}
+.item4 {
+  background-color: orange;
+}
+.item4:hover {
+  color: white;
+  box-shadow: 10px 5px 10px rgb(211, 169, 91);
+}
+.item5 {
+  background-color: #13e236;
+}
+.item5:hover {
+  color: white;
+  box-shadow: 10px 5px 10px #5fc370;
+}
+
+/* Backend */
+.item6 {
+  background-color: #4040d9;
+}
+.item6:hover {
+  color: white;
+  box-shadow: 10px 5px 10px #4232d5;
+}
+.item7 {
+  background-color: #e213ae;
+}
+.item7:hover {
+  color: white;
+  box-shadow: 10px 5px 10px #e273d1;
+}
+.item8 {
+  background-color: #e2cd13;
+}
+.item8:hover {
+  color: white;
+  box-shadow: 10px 5px 10px #ddcc73;
+}
+.item9 {
+  background-color: #e27713;
+}
+.item9:hover {
+  color: white;
+  box-shadow: 10px 5px 10px #ea984c;
+}

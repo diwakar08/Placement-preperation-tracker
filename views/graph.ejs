@@ -1,0 +1,866 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+
+    <!-- Bootstrap CSS -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      crossorigin="anonymous"
+    />
+    <title>Graph Question</title>
+    <style>
+      body {
+        background-color: black;
+        color: white;
+      }
+      #Array_table {
+        border: 2px solid white;
+        border-collapse: collapse;
+      }
+      table tr {
+        border: 2px solid white;
+      }
+      table td {
+        padding-left: 8px;
+
+        border: 2px solid white;
+      }
+      table th {
+        border: 2px solid white;
+        font-weight: bolder;
+        text-align: center;
+        font-size: 20px;
+      }
+      .center {
+        text-align: center;
+      }
+      table {
+        margin: 18px auto;
+      }
+      td a{
+        list-style: none;
+        color: white;
+      }
+      a:visited{
+        color: red;
+      }
+      #cbox{ 
+        height: 3vh;
+        width: 3vh; 
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Navigation Bar the Website -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <a class="navbar-brand" href="/">Placement Prep Tracker</a>
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-toggle="collapse"
+        data-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item active">
+            <a class="nav-link" href="#"
+              >Home <span class="sr-only">(current)</span></a
+            >
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="About">About</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="contact">Contact Us</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a
+              class="nav-link dropdown-toggle"
+              href="#"
+              id="navbarDropdown"
+              role="button"
+              data-toggle="dropdown"
+              aria-haspopup="true"
+              aria-expanded="false"
+            >
+              Content
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <a class="dropdown-item" href="dsa">DSA</a>
+              <a class="dropdown-item" href="web">Web Development</a>
+              <div class="dropdown-divider"></div>
+              <a class="dropdown-item" href="core">Core Subjects</a>
+            </div>
+          </li>
+        </ul>
+        <form class="form-inline my-2 my-lg-0">
+          
+          <div class="mx-2">
+            
+              <% if(!session.loggedIn) {%>
+                <button type="button" class="btn btn-danger" mx-2>
+              <a href="login" style="color: white">LogIn</a>
+            </button>
+              <% } else { %>
+                <strong><span class="text-light">Hi <%= username+" " %></span></strong> 
+              <% } %>
+              <% if(!session.loggedIn) { %>
+                <button type="button" class="btn btn-danger" mx-2>
+              <a href="signUp" style="color: white" ;>Signup</a>
+            </button>
+              <% } else { %>
+                <form action="/logout?_method=DELETE" method="POST">
+                  <button class="btn btn-danger ml-1" mx-2 type="submit">Log Out</button>
+              </form>
+            <% } %>
+          </div>
+        </form>
+      </div>
+    </nav>
+    <table>
+      <thead>
+        <tr>
+          <th>Question</th>
+          <th>Article</th>
+          <th>Practice</th>
+          <th>Done 👍</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Create a Graph, print it</td>
+          <td>
+            <a
+              href="https://www.geeksforgeeks.org/graph-and-its-representations/"
+              >Link</a
+            >
+          </td>
+          <td>Link</td>
+          <td class="center">
+            <input type="checkbox" class="checkbox" >
+           </td>
+        </tr>
+        <tr>
+          <td>Implement BFS algorithm</td>
+          <td>
+            <a
+              href="https://www.geeksforgeeks.org/breadth-first-search-or-bfs-for-a-graph/"
+              >Link</a
+            >
+          </td>
+          <td>
+            <a
+              href="https://practice.geeksforgeeks.org/problems/bfs-traversal-of-graph/1"
+              >Link</a
+            >
+          </td>
+          <td class="center">
+            <input type="checkbox" class="checkbox" >
+           </td>
+        </tr>
+        <tr>
+          <td>Implement DFS Algo</td>
+          <td>
+            <a
+              href="https://www.geeksforgeeks.org/depth-first-search-or-dfs-for-a-graph/"
+              >Link</a
+            >
+          </td>
+          <td>Link</td>
+          <td class="center">
+            <input type="checkbox" class="checkbox" >
+           </td>
+        </tr>
+        <tr>
+          <td>Detect Cycle in Directed Graph using BFS/DFS Algo</td>
+          <td>
+            <a href="https://www.geeksforgeeks.org/detect-cycle-in-a-graph/"
+              >Link</a
+            >
+          </td>
+          <td>Link</td>
+          <td class="center">
+            <input type="checkbox" class="checkbox" >
+           </td>
+        </tr>
+        <tr>
+          <td>Detect Cycle in UnDirected Graph using BFS/DFS Algo</td>
+          <td>
+            <a
+              href="https://www.geeksforgeeks.org/detect-cycle-in-an-undirected-graph-using-bfs/#:~:text=We%20do%20a%20BFS%20traversal,that%20there%20is%20no%20cycle."
+              >Link</a
+            >
+          </td>
+          <td>
+            <a
+              href="https://practice.geeksforgeeks.org/problems/detect-cycle-in-an-undirected-graph/1"
+              >Link</a
+            >
+          </td>
+          <td class="center">
+            <input type="checkbox" class="checkbox" >
+           </td>
+        </tr>
+        <tr>
+          <td>Search in a Maze</td>
+          <td>
+            <a
+              href="https://www.geeksforgeeks.org/rat-in-a-maze-backtracking-2/"
+              >Link</a
+            >
+          </td>
+          <td>
+            <a
+              href="https://practice.geeksforgeeks.org/problems/rat-in-a-maze-problem/1"
+              >Link</a
+            >
+          </td>
+          <td class="center">
+            <input type="checkbox" class="checkbox" >
+           </td>
+        </tr>
+        <tr>
+          <td>Minimum Step by Knight</td>
+          <td>
+            <a
+              href="https://www.geeksforgeeks.org/minimum-steps-reach-target-knight/"
+              >Link</a
+            >
+          </td>
+          <td>
+            <a
+              href="https://practice.geeksforgeeks.org/problems/steps-by-knight/0"
+              >Link</a
+            >
+          </td>
+          <td class="center">
+            <input type="checkbox" class="checkbox" >
+           </td>
+        </tr>
+        <tr>
+          <td>Flood fill algo</td>
+          <td>
+            <a
+              href="https://www.geeksforgeeks.org/flood-fill-algorithm-implement-fill-paint/"
+              >Link</a
+            >
+          </td>
+          <td>
+            <a
+              href="https://practice.geeksforgeeks.org/problems/flood-fill-algorithm1856/0/?category[]=Matrix&amp;page=1&amp;sortBy=accuracy&amp;query=category[]Matrixpage1sortByaccuracy"
+              >Link</a
+            >
+          </td>
+          <td class="center">
+            <input type="checkbox" class="checkbox" >
+           </td>
+        </tr>
+        <tr>
+          <td>Clone a graph</td>
+          <td>
+            <a href="https://www.geeksforgeeks.org/clone-an-undirected-graph/"
+              >Link</a
+            >
+          </td>
+          <td>Link</td>
+          <td class="center">
+            <input type="checkbox" class="checkbox" >
+           </td>
+        </tr>
+        <tr>
+          <td>Making wired Connections</td>
+          <td>
+            <a
+              href="https://www.geeksforgeeks.org/minimize-count-of-connections-required-to-be-rearranged-to-make-all-the-computers-connected/"
+              >Link</a
+            >
+          </td>
+          <td>Link</td>
+          <td class="center">
+            <input type="checkbox" class="checkbox" >
+           </td>
+        </tr>
+        <tr>
+          <td>Word Ladder</td>
+          <td>
+            <a
+              href="https://www.geeksforgeeks.org/word-ladder-length-of-shortest-chain-to-reach-a-target-word/"
+              >Link</a
+            >
+          </td>
+          <td>
+            <a
+              href="https://practice.geeksforgeeks.org/problems/word-ladder/0/?category[]=BFS&amp;page=1&amp;query=category[]BFSpage1"
+              >Link</a
+            >
+          </td>
+          <td class="center">
+            <input type="checkbox" class="checkbox" >
+           </td>
+        </tr>
+        <tr>
+          <td>Dijkstra algo</td>
+          <td>
+            <a
+              href="https://www.geeksforgeeks.org/dijkstras-shortest-path-algorithm-greedy-algo-7/"
+              >Link</a
+            >
+          </td>
+          <td>
+            <a
+              href="https://practice.geeksforgeeks.org/problems/implementing-dijkstra-set-1-adjacency-matrix/1/"
+              >Link</a
+            >
+          </td>
+          <td class="center">
+            <input type="checkbox" class="checkbox" >
+           </td>
+        </tr>
+        <tr>
+          <td>Implement Topological Sort</td>
+          <td>
+            <a href="https://www.geeksforgeeks.org/topological-sorting/"
+              >Link</a
+            >
+          </td>
+          <td>
+            <a
+              href="https://practice.geeksforgeeks.org/problems/topological-sort/1"
+              >Link</a
+            >
+          </td>
+          <td class="center">
+            <input type="checkbox" class="checkbox" >
+           </td>
+        </tr>
+        <tr>
+          <td>
+            Minimum time taken by each job to be completed given by a Directed
+            Acyclic Graph
+          </td>
+          <td>
+            <a
+              href="https://www.geeksforgeeks.org/minimum-time-taken-by-each-job-to-be-completed-given-by-a-directed-acyclic-graph/"
+              >Link</a
+            >
+          </td>
+          <td>Link</td>
+          <td class="center">
+            <input type="checkbox" class="checkbox" >
+           </td>
+        </tr>
+        <tr>
+          <td>
+            Find whether it is possible to finish all tasks or not from given
+            dependencies
+          </td>
+          <td>
+            <a
+              href="https://www.geeksforgeeks.org/find-whether-it-is-possible-to-finish-all-tasks-or-not-from-given-dependencies/"
+              >Link</a
+            >
+          </td>
+          <td>Link</td>
+          <td class="center">
+            <input type="checkbox" class="checkbox" >
+           </td>
+        </tr>
+        <tr>
+          <td>Find the no. of Islands</td>
+          <td>
+            <a href="https://www.geeksforgeeks.org/find-number-of-islands/"
+              >Link</a
+            >
+          </td>
+          <td>
+            <a
+              href="https://practice.geeksforgeeks.org/problems/find-the-number-of-islands/1"
+              >Link</a
+            >
+          </td>
+          <td class="center">
+            <input type="checkbox" class="checkbox" >
+           </td>
+        </tr>
+        <tr>
+          <td>
+            Given a sorted Dictionary of an Alien Language, find order of
+            characters
+          </td>
+          <td>
+            <a
+              href="https://www.geeksforgeeks.org/given-sorted-dictionary-find-precedence-characters/"
+              >Link</a
+            >
+          </td>
+          <td>
+            <a
+              href="https://practice.geeksforgeeks.org/problems/alien-dictionary/1"
+              >Link</a
+            >
+          </td>
+          <td class="center">
+            <input type="checkbox" class="checkbox" >
+           </td>
+        </tr>
+        <tr>
+          <td>Implement Kruksal’sAlgorithm</td>
+          <td>
+            <a
+              href="https://www.geeksforgeeks.org/kruskals-minimum-spanning-tree-algorithm-greedy-algo-2/"
+              >Link</a
+            >
+          </td>
+          <td>Link</td>
+          <td class="center">
+            <input type="checkbox" class="checkbox" >
+           </td>
+        </tr>
+        <tr>
+          <td>Implement Prim’s Algorithm</td>
+          <td>
+            <a
+              href="https://www.geeksforgeeks.org/prims-minimum-spanning-tree-mst-greedy-algo-5/"
+              >Link</a
+            >
+          </td>
+          <td>
+            <a
+              href="https://practice.geeksforgeeks.org/problems/minimum-spanning-tree/1/"
+              >Link</a
+            >
+          </td>
+          <td class="center">
+            <input type="checkbox" class="checkbox" >
+           </td>
+        </tr>
+        <tr>
+          <td>Total no. of Spanning tree in a graph</td>
+          <td>
+            <a
+              href="https://www.geeksforgeeks.org/total-number-spanning-trees-graph/"
+              >Link</a
+            >
+          </td>
+          <td>Link</td>
+          <td class="center">
+            <input type="checkbox" class="checkbox" >
+           </td>
+        </tr>
+        <tr>
+          <td>Implement Bellman Ford Algorithm</td>
+          <td>
+            <a
+              href="https://www.geeksforgeeks.org/bellman-ford-algorithm-dp-23/"
+              >Link</a
+            >
+          </td>
+          <td>
+            <a
+              href="https://practice.geeksforgeeks.org/problems/negative-weight-cycle/0"
+              >Link</a
+            >
+          </td>
+          <td class="center">
+            <input type="checkbox" class="checkbox" >
+           </td>
+        </tr>
+        <tr>
+          <td>Implement Floyd warshall Algorithm</td>
+          <td>
+            <a
+              href="https://www.geeksforgeeks.org/floyd-warshall-algorithm-dp-16/"
+              >Link</a
+            >
+          </td>
+          <td>
+            <a
+              href="https://practice.geeksforgeeks.org/problems/implementing-floyd-warshall/0"
+              >Link</a
+            >
+          </td>
+          <td class="center">
+            <input type="checkbox" class="checkbox" >
+           </td>
+        </tr>
+        <tr>
+          <td>Travelling Salesman Problem</td>
+          <td>
+            <a
+              href="https://www.geeksforgeeks.org/travelling-salesman-problem-set-1/"
+              >Link</a
+            >
+          </td>
+          <td>
+            <a
+              href="https://practice.geeksforgeeks.org/problems/travelling-salesman-problem/0"
+              >Link</a
+            >
+          </td>
+          <td class="center">
+            <input type="checkbox" class="checkbox" >
+           </td>
+        </tr>
+        <tr>
+          <td>Graph Colouring Problem</td>
+          <td>
+            <a
+              href="https://www.geeksforgeeks.org/graph-coloring-applications/#:~:text=Graph%20coloring%20problem%20is%20to,are%20colored%20using%20same%20color."
+              >Link</a
+            >
+          </td>
+          <td>Link</td>
+          <td class="center">
+            <input type="checkbox" class="checkbox" >
+           </td>
+        </tr>
+        <tr>
+          <td>Snake and Ladders Problem</td>
+          <td>
+            <a href="https://www.geeksforgeeks.org/snake-ladder-problem-2/"
+              >Link</a
+            >
+          </td>
+          <td>
+            <a
+              href="https://practice.geeksforgeeks.org/problems/snake-and-ladder-problem4816/1"
+              >Link</a
+            >
+          </td>
+          <td class="center">
+            <input type="checkbox" class="checkbox" >
+           </td>
+        </tr>
+        <tr>
+          <td>Find bridge in a graph</td>
+          <td>
+            <a href="https://www.geeksforgeeks.org/bridge-in-a-graph/">Link</a>
+          </td>
+          <td>
+            <a
+              href="https://practice.geeksforgeeks.org/problems/bridge-edge-in-graph/1"
+              >Link</a
+            >
+          </td>
+          <td class="center">
+            <input type="checkbox" class="checkbox" >
+           </td>
+        </tr>
+        <tr>
+          <td>Count Strongly connected Components(Kosaraju Algo)</td>
+          <td>
+            <a
+              href="https://www.geeksforgeeks.org/strongly-connected-components/"
+              >Link</a
+            >
+          </td>
+          <td>
+            <a
+              href="https://practice.geeksforgeeks.org/problems/strongly-connected-components-kosarajus-algo/1"
+              >Link</a
+            >
+          </td>
+          <td class="center">
+            <input type="checkbox" class="checkbox" >
+           </td>
+        </tr>
+        <tr>
+          <td>Check whether a graph is Bipartite or Not</td>
+          <td>
+            <a href="https://www.geeksforgeeks.org/bipartite-graph/">Link</a>
+          </td>
+          <td>
+            <a
+              href="https://practice.geeksforgeeks.org/problems/bipartite-graph/1"
+              >Link</a
+            >
+          </td>
+          <td class="center">
+            <input type="checkbox" class="checkbox" >
+           </td>
+        </tr>
+        <tr>
+          <td>Detect Negative cycle in a graph</td>
+          <td>
+            <a
+              href="https://www.geeksforgeeks.org/detect-negative-cycle-graph-bellman-ford/"
+              >Link</a
+            >
+          </td>
+          <td>Link</td>
+          <td class="center">
+            <input type="checkbox" class="checkbox" >
+           </td>
+        </tr>
+        <tr>
+          <td>Longest path in a Directed Acyclic Graph</td>
+          <td>
+            <a
+              href="https://www.geeksforgeeks.org/find-longest-path-directed-acyclic-graph/"
+              >Link</a
+            >
+          </td>
+          <td>Link</td>
+          <td class="center">
+            <input type="checkbox" class="checkbox" >
+           </td>
+        </tr>
+        <tr>
+          <td>Journey to the Moon</td>
+          <td>Link</td>
+          <td>
+            <a
+              target="_blank"
+              rel="noopener noreferrer nofollow"
+              href="https://www.hackerrank.com/challenges/journey-to-the-moon/problem"
+              >Link</a
+            >
+          </td>
+          <td class="center">
+            <input type="checkbox" class="checkbox" >
+           </td>
+        </tr>
+        <tr>
+          <td>Cheapest Flights Within K Stops</td>
+          <td>
+            <a
+              href="https://www.geeksforgeeks.org/shortest-path-exactly-k-edges-directed-weighted-graph/"
+              >Link</a
+            >
+          </td>
+          <td>
+            <a
+              target="_blank"
+              rel="noopener noreferrer nofollow"
+              href="https://leetcode.com/problems/cheapest-flights-within-k-stops/description/"
+              >Link</a
+            >
+          </td>
+          <td class="center">
+            <input type="checkbox" class="checkbox" >
+           </td>
+        </tr>
+        <tr>
+          <td>Oliver and the Game</td>
+          <td>Link</td>
+          <td>
+            <a
+              target="_blank"
+              rel="noopener noreferrer nofollow"
+              href="https://www.hackerearth.com/practice/algorithms/graphs/topological-sort/practice-problems/algorithm/oliver-and-the-game-3/"
+              >Link</a
+            >
+          </td>
+          <td class="center">
+            <input type="checkbox" class="checkbox" >
+           </td>
+        </tr>
+        <tr>
+          <td>Water Jug problem using BFS</td>
+          <td>
+            <a href="https://www.geeksforgeeks.org/water-jug-problem-using-bfs/"
+              >Link</a
+            >
+          </td>
+          <td>Link</td>
+          <td class="center">
+            <input type="checkbox" class="checkbox" >
+           </td>
+        </tr>
+        <tr>
+          <td>Find if there is a path of more thank length from a source</td>
+          <td>
+            <a
+              href="https://www.geeksforgeeks.org/find-if-there-is-a-path-of-more-than-k-length-from-a-source/"
+              >Link</a
+            >
+          </td>
+          <td>Link</td>
+          <td class="center">
+            <input type="checkbox" class="checkbox" >
+           </td>
+        </tr>
+        <tr>
+          <td>M-Colouring Problem</td>
+          <td>
+            <a
+              href="https://www.geeksforgeeks.org/m-coloring-problem-backtracking-5/"
+              >Link</a
+            >
+          </td>
+          <td>
+            <a
+              href="https://practice.geeksforgeeks.org/problems/m-coloring-problem/0"
+              >Link</a
+            >
+          </td>
+          <td class="center">
+            <input type="checkbox" class="checkbox" >
+           </td>
+        </tr>
+        <tr>
+          <td>
+            Minimum edges to reverse to make path from source to destination
+          </td>
+          <td>
+            <a
+              href="https://www.geeksforgeeks.org/minimum-edges-reverse-make-path-source-destination/"
+              >Link</a
+            >
+          </td>
+          <td>Link</td>
+          <td class="center">
+            <input type="checkbox" class="checkbox" >
+           </td>
+        </tr>
+        <tr>
+          <td>Paths to travel each nodes using each edge(Seven Bridges)</td>
+          <td>
+            <a
+              href="https://www.geeksforgeeks.org/paths-travel-nodes-using-edgeseven-bridges-konigsberg/"
+              >Link</a
+            >
+          </td>
+          <td>Link</td>
+          <td class="center">
+            <input type="checkbox" class="checkbox" >
+           </td>
+        </tr>
+        <tr>
+          <td>Vertex Cover Problem</td>
+          <td>
+            <a
+              href="https://www.geeksforgeeks.org/vertex-cover-problem-set-1-introduction-approximate-algorithm-2/"
+              >Link</a
+            >
+          </td>
+          <td>Link</td>
+          <td class="center">
+            <input type="checkbox" class="checkbox" >
+           </td>
+        </tr>
+        <tr>
+          <td>Chinese Postman or Route Inspection</td>
+          <td>
+            <a
+              href="https://www.geeksforgeeks.org/chinese-postman-route-inspection-set-1-introduction/"
+              >Link</a
+            >
+          </td>
+          <td>Link</td>
+          <td class="center">
+            <input type="checkbox" class="checkbox" >
+           </td>
+        </tr>
+        <tr>
+          <td>Number of Triangles in a Directed and Undirected Graph</td>
+          <td>
+            <a
+              href="https://www.geeksforgeeks.org/number-of-triangles-in-directed-and-undirected-graphs/"
+              >Link</a
+            >
+          </td>
+          <td>Link</td>
+          <td class="center">
+            <input type="checkbox" class="checkbox" >
+           </td>
+        </tr>
+        <tr>
+          <td>
+            Minimise the cashflow among a given set of friends who have borrowed
+            money from each other
+          </td>
+          <td>
+            <a
+              href="https://www.geeksforgeeks.org/minimize-cash-flow-among-given-set-friends-borrowed-money/"
+              >Link</a
+            >
+          </td>
+          <td>Link</td>
+          <td class="center">
+            <input type="checkbox" class="checkbox" >
+           </td>
+        </tr>
+        <tr>
+          <td>Two Clique Problem</td>
+          <td>
+            <a
+              href="https://www.geeksforgeeks.org/two-clique-problem-check-graph-can-divided-two-cliques/"
+              >Link</a
+            >
+          </td>
+          <td>Link</td>
+          <td class="center">
+            <input type="checkbox" class="checkbox" >
+           </td>
+        </tr>
+      </tbody>
+    </table>
+
+    <script
+      src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+      integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js"
+      integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js"
+      integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+      crossorigin="anonymous"
+    ></script>
+  <script>
+      // console.log("running.......\n")
+      // Get all checkboxes by class name
+      const checkboxes = document.querySelectorAll('.checkbox');
+      // console.log("running.......\n")
+      // Attach event listeners to each checkbox
+      checkboxes.forEach((checkbox) => {
+          checkbox.addEventListener('change', function (event) {
+              const isChecked = event.target.checked;
+  
+              // Extract checkbox data
+              const checkboxData = {
+                  id: event.target.id,
+                  name: event.target.name
+              };
+              const type = "graph"
+              const pageName = "graph.ejs"
+              console.log(checkboxData)
+              // Send checkbox state to the server
+              fetch('/checkbox/update', {
+                  method: 'POST',
+                  headers: {
+                      'Content-Type': 'application/json'
+                  },
+                  body: JSON.stringify({ isChecked, checkboxData, type, pageName})
+              })
+              .then((response) => response.json())
+              .then((data) => {
+                  // Handle the server response if needed
+              })
+              .catch((error) => {
+                  console.error('Error:', error);
+              });
+          });
+      });
+  </script>
+  </body>
+</html>
